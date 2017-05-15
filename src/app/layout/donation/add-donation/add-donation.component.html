@@ -1,0 +1,81 @@
+<div class="text-center well" style="background-color: #FFFFFF">
+  <h1 class="text-center" style="margin: 20 0 20 0">新增物資項目</h1>
+
+  <form #itemForm="ngForm">
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-3">
+        <label class="control-label">全贈字號</label>
+        <input class="form-control" name="dn_id" placeholder="10502001" [(ngModel)]="dn_id" required>
+      </div>
+      <div class="col-md-3">
+        <label class="control-label">捐贈者</label>
+        <input class="form-control" placeholder="boss" name="donor_name" [(ngModel)]="donor_name" required>
+      </div>
+      <div class="col-md-3">
+        <label class="control-label">捐贈日期</label>
+        <input type="date" class="form-control" name="donate_dt" [(ngModel)]="donate_dt" value="donate_dt" required>
+      </div>
+      <div class="col-md-3">
+        <label for="" class="control-label">承辦人</label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row" style="margin: 10 10 10 10">
+      <table #dnTable class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th class="col-md-2">別類</th>
+            <th class="col-md-2">財務名稱</th>
+            <th class="col-md-2">保存日期</th>
+            <th class="col-md-1">重量(g)</th>
+            <th class="col-md-1">單位</th>
+            <th class="col-md-1">數量</th>
+            <th class="col-md-1">單價</th>
+            <th class="col-md-2">條碼</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dn of donations; let i = index">
+            <td>
+              <select name="category{{i}}" class="form-control" [(ngModel)]="dn.category" [value]="dn.category">
+                <option *ngFor="let item of category">{{item}}</option>
+              </select>
+            </td>
+            <td><input name="item_name{{i}}" class="form-control" [(ngModel)]="dn.item_name"></td>
+            <td><input name="expire_dt{{i}}" class="form-control" [(ngModel)]="dn.expire_dt" type="date"></td>
+            <td><input name="weight{{i}}" class="form-control" [(ngModel)]="dn.weight"></td>
+            <td><input name="item_unit{{i}}" class="form-control" [(ngModel)]="dn.item_unit"></td>
+            <td><input name="item_qt{{i}}" class="form-control" [(ngModel)]="dn.item_qt"></td>
+            <td><input name="item_unitprice{{i}}" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
+            <td><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" 
+                      (keyup)="keyBarcode($event, dn.barcode, item)">
+            </td>          
+          </tr>
+        </tbody>
+      </table>
+      
+      <i id="newRow" class="fa fa-4x fa-caret-down fa-fw text-info text-center animated bounceIn clickable"
+         (click)="newRow()"></i>
+      <i *ngIf="donations.length > 1" class="fa fa-4x fa-caret-up fa-fw text-info text-center animated bounceIn clickable"
+         (click)="delRow()"></i>
+
+      <hr>
+
+      <div class="col-md-12">
+        <label class="control-label">紀錄與描述</label>
+        <textarea rows="4" class="form-control" placeholder="描述物品" name="memo" [(ngModel)]="memo"></textarea>
+      </div>
+    </div>
+
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-12">
+        <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">清除</button>
+        <button type="submit" class="btn btn-warning btn-md" (click)="addDonation()" [disabled]="!itemForm.form.valid">送出</button>
+      </div>
+    </div>
+  </form>
+
+</div>
