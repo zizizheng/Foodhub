@@ -1,7 +1,7 @@
 <!--search bar-->
 
 <form #searchForm="ngForm">
-  <div class="row" style="margin: 20 10 10 10">
+  <div class="row wrapper__panel">
     <div class="col-md-4 searchBar">  
       <input  *ngIf="!selectCat" class="form-control" name="donation-search"
               placeholder="你要找什麼呢？" [(ngModel)]="searchContent" required>
@@ -26,8 +26,8 @@
 
 
 <!--display form-->
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-12 text-center">
+<div class="row wrapper__panel">
+  <div class="col-md-12">
     <table class="table table-bordered table-hover table-striped animated zoomIn">
       <thead>
         <tr>
@@ -56,8 +56,10 @@
         </tr>
       </tbody>
     </table>
-    <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
-    <button class="btn btn-info" (click)="giveClick()">捐贈</button>
+    <div class="text-center">
+      <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+      <button class="btn btn-info" (click)="giveClick()">捐贈</button>
+    </div>
   </div>
 </div>
 <update-donation *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>

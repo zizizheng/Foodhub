@@ -1,6 +1,6 @@
-<form #userForm="ngForm">
+<form #userForm="ngForm" class="wrapper__panel">
   <div class="text-center well" style="background-color: #FFFFFF">
-    <h1 class="text-center" style="margin: 20 0 20 0">更新使用者資訊</h1>
+    <h1 class="text-center">更新使用者資訊</h1>
 
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-3">
@@ -33,11 +33,9 @@
           </select>
       </div>
     </div>
-    <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-12 text-center">
-        <button class="btn btn-success" (click)="clearClick()">取消</button>
-        <button class="btn btn-warning" (click)="sendClick()">送出</button>
-      </div>
+    <div class="wrapper__panel text-center">
+      <button class="btn btn-success" (click)="clearClick()">取消</button>
+      <button class="btn btn-warning" (click)="sendClick()">送出</button>
     </div>
   </div>
 </form>

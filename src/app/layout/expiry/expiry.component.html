@@ -1,3 +1,54 @@
-<p>
-  expiry works!
-</p>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        
+        
+        <div class="text-center well pageWell">
+
+            <h1 id="hExpiry" title="選擇過期天數">
+              <i id="iExpiry" class="fa fa-fw fa-spin lery fa-pagelines animated" 
+                (mouseover)="iconHover(true)"
+                (mouseleave)="iconHover(false)"
+                (click)="iconClick()">
+              </i>{{title}}
+            </h1>
+          <blockquote>
+            <p>不能浪費食物</p>
+            <footer>點選圖示可調整過期天數</footer>
+          </blockquote>
+          <p></p>
+        </div>
+        
+        
+        <table class="table table-bordered table-hover table-striped animated zoomIn">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>到期日</th>
+              <th>名稱</th>
+              <th>數量</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let expiry of expiries'>
+              <td>{{expiry.item_id}}</td>
+              <td>{{expiry.expire_dt}}</td>
+              <td>{{expiry.item_name}}</td>
+              <td>{{expiry.item_qt}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-header text-center">
+          <h3>老饕賦&nbsp;
+            <small>蘇軾</small>
+          </h3>
+        </div>
+        <p>庖丁鼓刀，易牙烹熬。水欲新而釜欲潔，火惡陳（江右久不改火，火色皆青。）而薪惡勞。九蒸暴而日 燥，百上下而湯鏖。嘗項上之一臠，嚼霜前之兩螫。爛櫻珠之煎蜜，滃杏酪之蒸羔。蛤半熟而含酒，蟹微生而帶糟。蓋聚物之夭美，以養吾之老饕。婉彼姬姜，顏如
+          李桃。彈湘妃之玉瑟，鼓帝子之雲璈。命仙人之萼綠華，舞古曲之鬱輪袍。引南海之玻璃，酌涼州之蒲萄。願先生之耆壽，分餘瀝於兩髦。候紅潮於玉頰，驚煖響於 檀槽。忽纍珠之妙唱，抽獨繭之長繰。閔手倦而少休，疑吻燥而當膏。倒一缸之雪乳，列百柂之瓊艘。各眼灩於秋水，咸骨醉於春醪。美人告去已而雲散，先生方兀
+          然而禪逃。響松風於蟹眼，浮雪花於兔毫。先生一笑而起，渺海闊而天高。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

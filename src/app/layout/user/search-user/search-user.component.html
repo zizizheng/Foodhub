@@ -1,6 +1,6 @@
 
 
-<div class="row" style="margin: 20 10 10 10">
+<div class="row wrapper__panel">
   <form #searchForm="ngForm">
     <div class="col-md-4 searchBar">
       <input name="user-name" type="text" class="form-control" placeholder="搜尋使用者" 
@@ -19,8 +19,8 @@
 </div>
 
 
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-12 text-center">
+<div class="row wrapper__panel">
+  <div class="col-md-12">
     <table class="table table-bordered table-hover table-striped animated zoomIn">
       <thead>
         <tr>
@@ -47,7 +47,9 @@
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
+    <div class="text-center">
+      <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
+    </div>
   </div>
 </div>
 

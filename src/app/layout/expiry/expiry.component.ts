@@ -4,8 +4,7 @@ import { PosSystemService } from './../../service/pos-system.service';
 import { Component, OnInit } from '@angular/core';
 import { Expiry } from './expiry.model';
 
-
-declare const swal: any;
+declare let swal: any;
 
 @Component({
   selector: 'page-expiry',
@@ -34,7 +33,10 @@ export class ExpiryComponent implements OnInit{
                     else this.title = days + '天內到期貨品';
                 },
                 error => {
-                    swal('Do not find expiries');
+                    swal({
+                        title: 'Do not find expiries',
+                        type: 'error'
+                    });
                     this.expiries = [];
                 },
                 ()=> this.dealIdAndDate()

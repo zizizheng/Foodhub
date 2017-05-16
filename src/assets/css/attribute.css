@@ -1,0 +1,16 @@
+.pageWell {
+    margin-top: 35px;
+}
+
+.clickable:hover{
+    cursor: hand;
+    cursor: pointer;
+}
+
+.searchBar {
+    padding-top: 5px;
+}
+
+.wrapper__panel {
+    margin: 20px 10px 10px 10px;
+}

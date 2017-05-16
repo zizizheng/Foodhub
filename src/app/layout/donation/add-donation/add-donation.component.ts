@@ -10,7 +10,7 @@ declare let swal:any;
 @Component({
     selector: 'add-donation',
     templateUrl: `./add-donation.component.html`,
-    // styleUrls: ['app/template/addTemplate.component.css']
+    styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddDonationComponent extends AddTemplateComponent implements OnInit{
     dn_id: number;

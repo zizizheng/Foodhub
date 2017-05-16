@@ -7,7 +7,7 @@ import * as userCat from '../user.model';
 @Component({
     selector: 'addUser',
     templateUrl: `./add-user.component.html`,
-    // styleUrls: ['app/template/addTemplate.component.css']
+    styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddUserComponent extends AddTemplateComponent {
     pack: any;

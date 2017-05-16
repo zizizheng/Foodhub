@@ -7,7 +7,7 @@ import * as donorCat from '../donor.model';
 declare let swal:any;
 
 @Component({
-  selector: 'searchDonor',
+  selector: 'search-donor',
   templateUrl: `./search-donor.component.html`
 })
 export class SearchDonorComponent extends SearchTemplateComponent implements OnInit{

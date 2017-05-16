@@ -7,7 +7,7 @@ import * as doneeCat from '../donee.model';
 @Component({
     selector: 'addDonee',
     templateUrl: `app/layout/donee/add-donee/add-donee.component.html`,
-    // styleUrls: ['app/template/addTemplate.component.css']
+    styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddDoneeComponent extends AddTemplateComponent {
     pack: any;

@@ -17,14 +17,14 @@ export class PageContactComponent {
             fb:'', 
             github:'', 
             web:'', 
-            photo:'app/img/anche.jpg'
+            photo:'../../../../assets/img/anche.jpg'
         },
         { 
             name: 'Zizi', title: 'Frontend Developer', 
             fb:'https://www.facebook.com/zizi.zheng.1', 
             github:'https://github.com/zizizheng',
             web:'',
-            photo:'app/img/zizi.jpg'
+            photo:'../../../../assets/img/zizi.jpg'
         }
     ];
 }

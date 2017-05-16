@@ -3,7 +3,8 @@ import { Component, OnInit, Injector, Input } from '@angular/core';
 
 @Component({
   selector: 'export-donation',
-  templateUrl: `./export-donation.component.html`
+  templateUrl: `./export-donation.component.html`,
+  styleUrls: ['./export-donation.component.css']
 })
 export class ExportDonationComponent implements OnInit {
     @Input() exList: Array<Donation>;

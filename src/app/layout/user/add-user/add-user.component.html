@@ -1,9 +1,9 @@
 <form #userForm="ngForm">
-  <div class="row" style="margin: 10 10 10 10">
+  <div class="row wrapper__panel">
     <div class="col-md-12">
       <div class="text-center" style="background-color: #FFFFFF">
         <h1>新增平台使用者</h1>
-        <div class="row" style="margin: 10 10 10 10">
+        <div class="row wrapper__panel">
           <div class="col-md-3">
             <label class="control-label">姓名</label>
             <input class="form-control" name="name" placeholder="姓名" [(ngModel)]="user.user_name"
@@ -40,7 +40,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <button type="submit" class="btn btn-success btn-lg" (click)="addUserClick()"
+            <button type="submit" class="btn btn-success btn-md" (click)="addUserClick()"
                     [disabled]="!userForm.form.valid">新增使用者</button>
           </div>
         </div>

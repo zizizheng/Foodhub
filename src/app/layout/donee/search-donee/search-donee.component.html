@@ -1,5 +1,5 @@
 <form #searchForm="ngForm">
-  <div class="row" style="margin: 20 10 10 10">
+  <div class="row wrapper__panel">
     <div class="col-md-4 searchBar">
       <input class="form-control" placeholder="你要找什麼呢？" name="donee-search"
              [(ngModel)]="searchWord" *ngIf="!selectCat" required> 
@@ -23,8 +23,8 @@
 </form>
 
 
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-12 text-center table-responsive">
+<div class="row wrapper__panel">
+  <div class="col-md-12 table-responsive">
     <table class="table table-bordered table-hover table-striped table-sm animated zoomIn">
       <thead>
         <tr>
@@ -62,7 +62,9 @@
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
+    <div class="text-center">
+      <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
+    </div>
   </div>
 </div>
 <updateDonee *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></updateDonee>
