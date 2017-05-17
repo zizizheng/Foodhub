@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
-Using CSS3 framework [Bootstrap](http://getbootstrap.com/) version 3.10.8
+Using CSS3 framework [Bootstrap](http://getbootstrap.com/) version 3.3.7
 
 # Description
 
