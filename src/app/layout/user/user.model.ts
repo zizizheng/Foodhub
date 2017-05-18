@@ -34,7 +34,7 @@ export class User {
         this.auth = (ob.auth == "管理員") ? "admin":"user";
         this.account = ob.account;
         this.password = ob.password;
-        console.log(ob);
+        // console.log(ob);
     }
 }
 

@@ -35,7 +35,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
         this.dnUrl = this.serverService.getDonationUrl('');
         this.GetSpecificData( this.dnUrl + 'max_dnid' )
             .then((data: number) => this.dn_id = data + 1);
-        this.donate_dt = new DatePipe('zh-tw').transform( Date.now(), 'yyyy-MM-dd' );
+        this.donate_dt = new DatePipe('en').transform( Date.now(), 'yyyy-MM-dd' );
         this.newRow();
     }
 

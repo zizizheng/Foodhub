@@ -72,13 +72,15 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     }
 
     checkChange(item, checked, index){
-        console.log(item._id);
-        // console.log(this.delArray.filter(object => object.id == item._id));
-        this.delArray.filter(object => 
-                    object.primaryKey == item[this.primaryKey])[0].checked = checked;
-        if (checked) this.exTem.push(item);
-        else this.exTem.splice(index, 1);
-        console.log(this.delArray);
+        // console.log(index);
+        // check for delete
+        this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
+
+        // Find the index of item. Not find(checked yet) -> push, Find(already check) -> delete
+        let i = this.exTem.findIndex((o) => { return o['item_name'] === item.item_name; });
+        if (i < 0) this.exTem.push(item);
+        else this.exTem.splice(i, 1);
+        // console.log(this.exTem);
     }
 
     deleteClick(){

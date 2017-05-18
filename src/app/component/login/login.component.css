@@ -1,0 +1,17 @@
+.subtitle {
+    display: none; 
+}
+
+.cover {
+    padding-top: 50px;
+}
+
+.btn-margin {
+    margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+    .subtitle {
+        display: block;
+    }
+}

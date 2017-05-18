@@ -21,9 +21,9 @@
         </div>
         
         
-        <table class="table table-bordered table-hover table-striped animated zoomIn">
+        <table class="table table-bordered table-hover table-striped animated zoomIn table-rwd">
           <thead>
-            <tr>
+            <tr class="tr-only-hide">
               <th>ID</th>
               <th>到期日</th>
               <th>名稱</th>
@@ -32,10 +32,10 @@
           </thead>
           <tbody>
             <tr *ngFor='let expiry of expiries'>
-              <td>{{expiry.item_id}}</td>
-              <td>{{expiry.expire_dt}}</td>
-              <td>{{expiry.item_name}}</td>
-              <td>{{expiry.item_qt}}</td>
+              <td data-th="ID">{{expiry.item_id}}</td>
+              <td data-th="到期日">{{expiry.expire_dt}}</td>
+              <td data-th="名稱">{{expiry.item_name}}</td>
+              <td data-th="數量">{{expiry.item_qt}}</td>
             </tr>
           </tbody>
         </table>

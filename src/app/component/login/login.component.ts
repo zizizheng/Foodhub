@@ -8,6 +8,7 @@ declare let swal: any;
 @Component({
 	selector: 'login-page',
 	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 	curTime: Object;

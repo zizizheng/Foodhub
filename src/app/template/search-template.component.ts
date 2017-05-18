@@ -34,12 +34,15 @@ export class SearchTemplateComponent {
             .getDataList(listUrl)
             .subscribe(
                 data => {
+                    this.dataList = [];
+                    console.log(this.dataList);
                     if (this.getType(data) === this.getType([])){
                         this.dataList = data; 
                     }
                     else {
-                        this.dataList.push(data)
+                        this.dataList.push(data);
                     }
+                    console.log(this.dataList);
                 },
                 error => {
                     const err = error.json();

@@ -6,7 +6,7 @@ import * as itemCat from '../user.model';
 
 
 @Component({
-  selector: 'updateUser',
+  selector: 'update-user',
   templateUrl: `./update-user.component.html`
 })
 export class UpdateUserComponent extends UpdateTemplateComponent implements OnInit, OnChanges {

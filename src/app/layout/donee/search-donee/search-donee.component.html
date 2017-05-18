@@ -1,6 +1,6 @@
 <form #searchForm="ngForm">
   <div class="row wrapper__panel">
-    <div class="col-md-4 searchBar">
+    <div class="col-sm-4 searchBar">
       <input class="form-control" placeholder="你要找什麼呢？" name="donee-search"
              [(ngModel)]="searchWord" *ngIf="!selectCat" required> 
       
@@ -9,13 +9,13 @@
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-4 searchBar">
+    <div class="col-sm-4 searchBar">
       <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" 
             (change)="searchChange(catSelect.value)" required>
         <option *ngFor="let donee of categorySearch" [value]="donee">{{donee}}</option>
       </select>
     </div>
-    <div class="col-md-2 searchBar">
+    <div class="col-sm-2 searchBar text-center">
       <button type="submit" class="btn btn-primary" (click)="searchClick()"
               [disabled]="!searchForm.form.valid">送出</button>
     </div>
@@ -24,47 +24,45 @@
 
 
 <div class="row wrapper__panel">
-  <div class="col-md-12 table-responsive">
-    <table class="table table-bordered table-hover table-striped table-sm animated zoomIn">
-      <thead>
-        <tr>
-          <th>
-            <input type="checkbox" value=""> </th>
-          <th>單位名稱</th>
-          <th>單位分類</th>
-          <th>戶數</th>
-          <th>人數</th>
-          <th>電話</th>
-          <th>地址</th>
-          <th>聯絡人姓名</th>
-          <th>聯絡人電話</th>
-          <th>E-mail</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let donee of dataList">
-          <td>
-            <input type="checkbox" (change)="checkChange(donee, $event.target.checked)"> 
-          </td>
-          <td>{{donee.donee_name}}</td>
-          <td>{{donee.category}}</td>
-          <td>{{donee.house_num}}</td>
-          <td>{{donee.people_num}}</td>
-          <td>{{donee.phone}}</td>
-          <td>{{donee.address}}</td>
-          <td>{{donee.contact}}</td>
-          <td>{{donee.contact_phone}}</td>
-          <td>{{donee.email}}</td>
-          <td>
-            <button class="btn btn-success" (click)="updateClick(donee)">更新</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
-    </div>
+  <table class="table table-bordered table-hover table-striped table-sm animated zoomIn table-rwd">
+    <thead>
+      <tr class="tr-only-hide">
+        <th>
+          <input type="checkbox" value=""> </th>
+        <th>單位名稱</th>
+        <th>單位分類</th>
+        <th>戶數</th>
+        <th>人數</th>
+        <th>電話</th>
+        <th>地址</th>
+        <th>聯絡人姓名</th>
+        <th>聯絡人電話</th>
+        <th>E-mail</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let donee of dataList">
+        <td>
+          <input type="checkbox" (change)="checkChange(donee, $event.target.checked)"> 
+        </td>
+        <td data-th="單位名稱">{{donee.donee_name}}</td>
+        <td data-th="單位分類">{{donee.category}}</td>
+        <td data-th="戶數">{{donee.house_num}}</td>
+        <td data-th="人數">{{donee.people_num}}</td>
+        <td data-th="電話">{{donee.phone}}</td>
+        <td data-th="地址">{{donee.address}}</td>
+        <td data-th="聯絡人姓名">{{donee.contact}}</td>
+        <td data-th="聯絡人電話">{{donee.contact_phone}}</td>
+        <td data-th="E-mail">{{donee.email}}</td>
+        <td class="center">
+          <button class="btn btn-success" (click)="updateClick(donee)">更新</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
 <updateDonee *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></updateDonee>

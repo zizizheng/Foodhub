@@ -1,0 +1,9 @@
+h1 {
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .icons {
+        margin-top: 20px;
+    }
+}

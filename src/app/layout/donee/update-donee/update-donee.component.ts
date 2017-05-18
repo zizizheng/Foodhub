@@ -29,9 +29,7 @@ export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnI
     }
 
     ngOnChanges(){
-        this.donee.pushData(this.inputItem);    
-        console.log(this.inputItem);
-        console.log(this.donee);
+        this.donee.pushData(this.inputItem);
     }
 
     sendClick(){

@@ -11,7 +11,7 @@
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-2 searchBar">
+    <div class="col-md-2 searchBar text-center">
       <button type="submit" class="btn btn-primary" (click)="searchClick()" 
               [disabled]="!searchForm.form.valid">送出</button>
     </div>
@@ -20,37 +20,35 @@
 
 
 <div class="row wrapper__panel">
-  <div class="col-md-12">
-    <table class="table table-bordered table-hover table-striped animated zoomIn">
-      <thead>
-        <tr>
-          <th>
-            <input type="checkbox" value=""> </th>
-          <th>姓名</th>
-          <th>手機</th>
-          <th>地區</th>
-          <th>帳號</th>
-          <th>選項</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of dataList">
-          <td>
-            <input #userCheck type="checkbox" value="" (change)="checkChange(user, userCheck.checked)"> </td>
-          <td>{{user.user_name}}</td>
-          <td>{{user.phone}}</td>
-          <td>{{user.area}}</td>
-          <td>{{user.account}}</td>
-          <td>
-            <button class="btn btn-success" (click)="editClick(user)">更改</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
-    </div>
+  <table class="table table-bordered table-hover table-striped animated zoomIn table-rwd">
+    <thead>
+      <tr class="tr-only-hide">
+        <th>
+          <input type="checkbox" value=""> </th>
+        <th>姓名</th>
+        <th>手機</th>
+        <th>地區</th>
+        <th>帳號</th>
+        <th>選項</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dataList">
+        <td>
+          <input #userCheck type="checkbox" (change)="checkChange(user, userCheck.checked)"> </td>
+        <td data-th="姓名">{{user.user_name}}</td>
+        <td data-th="手機">{{user.phone}}</td>
+        <td data-th="地區">{{user.area}}</td>
+        <td data-th="帳號">{{user.account}}</td>
+        <td class="center">
+          <button class="btn btn-success" (click)="editClick(user)">更改</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
   </div>
 </div>
 
-<updateUser *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></updateUser>
+<update-user *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></update-user>

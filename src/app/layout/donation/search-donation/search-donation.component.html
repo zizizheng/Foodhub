@@ -2,7 +2,7 @@
 
 <form #searchForm="ngForm">
   <div class="row wrapper__panel">
-    <div class="col-md-4 searchBar">  
+    <div class="col-sm-4 searchBar">  
       <input  *ngIf="!selectCat" class="form-control" name="donation-search"
               placeholder="你要找什麼呢？" [(ngModel)]="searchContent" required>
 
@@ -11,13 +11,13 @@
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-4 searchBar">
+    <div class="col-sm-4 searchBar">
       <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" 
               (change)="searchChange(catSelect.value)" required>
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-2 searchBar">
+    <div class="col-sm-2 searchBar text-center">
       <button type="submit" class="btn btn-primary" (click)="searchClick()"
               [disabled]="!searchForm.form.valid">送出</button>
     </div>
@@ -27,39 +27,37 @@
 
 <!--display form-->
 <div class="row wrapper__panel">
-  <div class="col-md-12">
-    <table class="table table-bordered table-hover table-striped animated zoomIn">
-      <thead>
-        <tr>
-          <th>
-            <input type="checkbox" value=""> </th>
-          <th>全贈字號</th>
-          <th>品項名稱</th>
-          <th>有效期限</th>
-          <th>品項分類</th>
-          <th>剩餘數量</th>
-          <th>選項</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of dataList; let i = index">
-          <td>
-            <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked, i)"> </td>
-          <td>{{item.dn_id}}</td>
-          <td>{{item.item_name}}</td>
-          <td>{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
-          <td>{{item.category}}</td>
-          <td>{{item.item_qt}}</td>
-          <td>
-            <button class="btn btn-success" (click)="updateClick(item)">更新</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
-      <button class="btn btn-info" (click)="giveClick()">捐贈</button>
-    </div>
+  <table class="table table-bordered table-hover table-striped animated zoomIn table-rwd">
+    <thead>
+      <tr class="tr-only-hide">
+        <th>
+          <input type="checkbox" value=""> </th>
+        <th>全贈字號</th>
+        <th>品項名稱</th>
+        <th>有效期限</th>
+        <th>品項分類</th>
+        <th>剩餘數量</th>
+        <th>選項</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataList; let i = index">
+        <td>
+          <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked, i)"> </td>
+        <td data-th="全贈字號" class="margin">{{item.dn_id}}</td>
+        <td data-th="品項名稱" class="margin">{{item.item_name}}</td>
+        <td data-th="有效期限" class="margin">{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
+        <td data-th="品項分類" class="margin">{{item.category}}</td>
+        <td data-th="剩餘數量" class="margin">{{item.item_qt}}</td>
+        <td class="center">
+          <button class="btn btn-success" (click)="updateClick(item)">更新</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+    <button class="btn btn-info" (click)="giveClick()">捐贈</button>
   </div>
 </div>
 <update-donation *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>

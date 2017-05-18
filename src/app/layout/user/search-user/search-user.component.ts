@@ -53,7 +53,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
     }
 
     notifyUpdate(isUpdate){
-        // console.log('got emit');
+        console.log('got emit');
         if(isUpdate) this.GetList(this.listUrl, this.primaryKey);
         this.updateBut = false;
     }

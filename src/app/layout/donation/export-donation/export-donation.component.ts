@@ -19,6 +19,10 @@ export class ExportDonationComponent implements OnInit {
     delEx(index){
         this.exList.splice(index, 1);
     }
+
+    cancelExport(){
+        this.exList.splice(0);
+    }
 }
 
 
