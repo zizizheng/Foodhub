@@ -51,4 +51,4 @@
   </div>
 </div>
 
-<update-user *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></update-user>
+<update-user *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-user>

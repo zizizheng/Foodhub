@@ -37,7 +37,9 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
         let url = this.serverService.getDonorUrl(this.donor.donor_name);
         this.Update(url, itemObject).then(
             (data) => {
-                if(data) this.updated.emit(true);
+                if(data){
+                    this.updated.emit(true);
+                }
             }
         );
     }

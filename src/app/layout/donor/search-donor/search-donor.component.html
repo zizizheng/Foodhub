@@ -62,4 +62,4 @@
     <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonor *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></updateDonor>
+<updateDonor *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></updateDonor>

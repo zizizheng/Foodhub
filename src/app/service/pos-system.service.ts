@@ -16,7 +16,7 @@ export class PosSystemService {
     getData(url, key){
         let params = new URLSearchParams();
         params.set('searchKey', key);
-        console.log(url);
+        // console.log(url);
 
         return this.http.get(url, { search: params })
                         .map(response => response.json());
@@ -32,7 +32,7 @@ export class PosSystemService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let params = JSON.stringify(object);
-        console.log(params);
+        // console.log(params);
 
         return this.http.post(url, params, options)
                 .map(response => response.json());

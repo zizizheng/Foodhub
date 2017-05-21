@@ -61,7 +61,10 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
 
     notifyUpdate(isUpdate){
         // console.log('got emit');
-        if(isUpdate) this.GetList(this.listUrl, this.primaryKey);
+        // console.log(isUpdate);
+        if(isUpdate){
+            this.GetList(this.listUrl, this.primaryKey);
+        }
         this.updateBut = false;
     }
 }
