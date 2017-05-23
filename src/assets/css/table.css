@@ -36,7 +36,8 @@
     text-transform: uppercase;
     font-weight: bold;
     margin-right: 10px;
-    color: #D20B2A;
+    color: steelblue;
+    margin-left: 15px;
   }
   /*當RWD縮小的時候.table-bordered 會有兩條線，所以針對.table-bordered去做修正*/
   .table-rwd.table-bordered td,

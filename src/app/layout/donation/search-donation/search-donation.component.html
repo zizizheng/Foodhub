@@ -50,7 +50,7 @@
         <td data-th="品項分類" class="margin">{{item.category}}</td>
         <td data-th="剩餘數量" class="margin">{{item.item_qt}}</td>
         <td class="center">
-          <button class="btn btn-success" (click)="updateClick(item)">更新</button>
+          <a pageScroll href="#update-donation"><button class="btn btn-success" (click)="updateClick(item)">更新</button></a>
         </td>
       </tr>
     </tbody>
@@ -60,5 +60,5 @@
     <button class="btn btn-info" (click)="giveClick()">捐贈</button>
   </div>
 </div>
-<update-donation *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>
+<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>
 <export-donation *ngIf="exList.length" [exList]="exList"></export-donation>

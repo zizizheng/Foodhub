@@ -1,16 +1,15 @@
 import { LoginService } from './../../service/login.service';
 import { ServerService } from './../../service/server.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { OnInit } from '@angular/core';
-declare let swal: any;
+declare const swal: any;
 
 @Component({
 	selector: 'login-page',
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 	curTime: Object;
 	account: string = '';
 	password: string = '';
@@ -18,38 +17,41 @@ export class LoginComponent {
 	pack: any;
 	isLogin: boolean;
 
-	constructor(private router: Router, 
-		public loginService: LoginService){
+	constructor(private router: Router,
+		public loginService: LoginService) {
 		this.isLogin = false;
 		this.pack = undefined;
 		this.userName = undefined;
 	}
 
-	ngOnInit(){
+	ngOnInit() {
 		this.userName = this.loginService.checkLogin();
-		this.isLogin = (this.userName == undefined) ? false : true;
+		this.isLogin = (this.userName === undefined) ? false : true;
 	}
 
-	loginClick(){
-		//swal("Account : " + this.account + ", and Password : " + this.password);
-		if( this.account == '' || this.password == '') 
+	onSubmit(v) {
+		// swal("Account : " + this.account + ", and Password : " + this.password);
+		if (v.account === '' || v.password === '')
 			swal('請輸入帳號密碼', '忘記帳密了嗎? 這功能也還沒實作QQ', 'warning');
 		else {
-			this.loginService.postData(this.account, this.password)
+			this.loginService.postData(v.account, v.password)
 				.subscribe(
-					data => this.pack = data,
-					error => {
-						let err = error.json();
-						swal('Error', err.error);
-					},
-					() => {
-						console.log(this.pack);
-						this.loginService.recordLogin(this.account);
-						swal( 'Login Successed', 'Welcome to FoodBank, ' + this.account);
-						this.router.navigate(['expiryPage']);
-					}
+				data => this.pack = data,
+				error => {
+					swal('Error', error.JSON);
+				},
+				() => {
+					console.log(this.pack);
+					this.loginService.recordLogin(v.account);
+					swal('Login Successed', 'Welcome to FoodBank, ' + this.account);
+					this.router.navigate(['page-expiry']);
+				}
 				);
+		}
+	}
 
-		} 
+	onLogout() {
+		this.loginService.recordLogin(undefined);
+		this.isLogin = false;
 	}
 }

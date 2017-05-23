@@ -52,7 +52,7 @@
         <td data-th="E-mail">{{donor.email}}</td>
         <td data-th="地區">{{donor.area}}</td>
         <td class="center">
-          <button class="btn btn-success" (click)="updateClick(donor)">更新</button>
+          <a pageScroll href="#update-donor"><button class="btn btn-success" (click)="updateClick(donor)">更新</button></a>
         </td>
       </tr>
     </tbody>
@@ -62,4 +62,4 @@
     <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonor *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></updateDonor>
+<update-donor id="update-donor" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donor>

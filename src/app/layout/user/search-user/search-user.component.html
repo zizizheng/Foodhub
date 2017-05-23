@@ -41,7 +41,7 @@
         <td data-th="地區">{{user.area}}</td>
         <td data-th="帳號">{{user.account}}</td>
         <td class="center">
-          <button class="btn btn-success" (click)="editClick(user)">更改</button>
+          <a pageScroll href="#update-user"><button class="btn btn-success" (click)="editClick(user)">更改</button></a>
         </td>
       </tr>
     </tbody>
@@ -51,4 +51,4 @@
   </div>
 </div>
 
-<update-user *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-user>
+<update-user id="update-user" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-user>

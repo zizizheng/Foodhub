@@ -6,7 +6,7 @@ import { Donee } from '../donee.model';
 import * as itemCat from '../donee.model';
 
 @Component({
-  selector: 'updateDonee',
+  selector: 'update-donee',
   templateUrl: `./update-donee.component.html`
 })
 export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnInit, OnChanges {

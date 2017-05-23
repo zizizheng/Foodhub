@@ -56,7 +56,7 @@
         <td data-th="聯絡人電話">{{donee.contact_phone}}</td>
         <td data-th="E-mail">{{donee.email}}</td>
         <td class="center">
-          <button class="btn btn-success" (click)="updateClick(donee)">更新</button>
+          <a pageScroll href="#update-donee"><button class="btn btn-success" (click)="updateClick(donee)">更新</button></a>
         </td>
       </tr>
     </tbody>
@@ -65,4 +65,4 @@
     <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonee *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></updateDonee>
+<update-donee id="update-donee" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donee>

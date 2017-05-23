@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 // Service
 import { LoginService } from './service/login.service';
@@ -50,7 +51,8 @@ import { LoginComponent } from './component/login/login.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    Ng2PageScrollModule.forRoot()
   ],
   declarations: [
     AppComponent,
