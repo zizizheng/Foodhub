@@ -42,9 +42,9 @@ import { UpdateUserComponent } from './layout/user/update-user/update-user.compo
 import { PageUserComponent } from './layout/user/page-user/page-user.component';
 
 // Template
-import { SearchTemplateComponent } from './template/search-template.component';
-import { AddTemplateComponent } from './template/add-template.component';
-import { UpdateTemplateComponent } from './template/update-template.component';
+// import { SearchTemplateComponent } from './template/search-template.component';
+// import { AddTemplateComponent } from './template/add-template.component';
+// import { UpdateTemplateComponent } from './template/update-template.component';
 
 import { PageContactComponent } from './layout/contact/page-contact/page-contact.component';
 import { FooterComponent } from './component/footer/footer.component';
@@ -84,9 +84,9 @@ import { LoginComponent } from './component/login/login.component';
     SearchUserComponent,
     UpdateUserComponent,
     PageUserComponent,
-    SearchTemplateComponent,
-    AddTemplateComponent,
-    UpdateTemplateComponent
+    // SearchTemplateComponent,
+    // AddTemplateComponent,
+    // UpdateTemplateComponent
   ],
   providers: [
     LoginService, ServerService, PosSystemService,

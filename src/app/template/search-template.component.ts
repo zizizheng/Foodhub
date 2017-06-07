@@ -5,8 +5,6 @@ import { Component, OnInit, Input, Injector } from '@angular/core';
 
 declare const swal: any;
 
-@Component({
-})
 export class SearchTemplateComponent {
     updateBut = false;
     delCheck = false;
@@ -73,7 +71,7 @@ export class SearchTemplateComponent {
                 swal('Opps, something wrong!', err.error, 'warning');
             },
             () => {
-                // console.log(this.dataList);
+                console.log(this.dataList);
                 this.dealId();
                 this.putIntoChecklist(this.primaryKey);
             }

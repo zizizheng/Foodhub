@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'page-user',
-  templateUrl: `./page-user.component.html`
+    selector: 'page-user',
+    templateUrl: `./page-user.component.html`
 })
 export class PageUserComponent implements OnInit {
-    private selectedBut = 'search';
-    ngOnInit(): void{}
+    selectedBut = 'search';
+    ngOnInit(): void { }
 
-    butClick(_selectedBut: string){
+    butClick(_selectedBut: string) {
         this.selectedBut = _selectedBut;
     }
 }

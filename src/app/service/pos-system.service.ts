@@ -5,29 +5,29 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PosSystemService {
     private pack;
-    constructor( private http: Http ){
+    constructor(private http: Http) {
     }
 
-    getDataList(url){
+    getDataList(url) {
         return this.http.get(url)
-                        .map(response => response.json());
+            .map(response => response.json());
     }
 
-    getData(url, key){
+    getData(url, key) {
         let params = new URLSearchParams();
         params.set('searchKey', key);
         // console.log(url);
 
         return this.http.get(url, { search: params })
-                        .map(response => response.json());
+            .map(response => response.json());
     }
 
-    getSpecificData(url){
+    getSpecificData(url) {
         return this.http.get(url)
-                        .map(response => response.json());
+            .map(response => response.json());
     }
 
-    postData(url, object){
+    postData(url, object) {
         // TODO : move subscribe to corresponding component
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -35,12 +35,12 @@ export class PosSystemService {
         // console.log(params);
 
         return this.http.post(url, params, options)
-                .map(response => response.json());
+            .map(response => response.json());
     }
 
-    deleteData(url){
+    deleteData(url) {
         console.log(url);
         return this.http.delete(url)
-                .map(response => response.json());
+            .map(response => response.json());
     }
 }

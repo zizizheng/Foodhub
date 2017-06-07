@@ -1,22 +1,24 @@
+import { Auth } from './../layout/user/user.model';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LoginService {
-    public nameChange$: EventEmitter<string>;
+    public nameChange$: EventEmitter<object>;
     serverUrl: string;
     loginName: string;
     auth: string;
 
     constructor(private http: Http) {
-        this.nameChange$ = new EventEmitter<string>();
+        this.nameChange$ = new EventEmitter<object>();
         this.serverUrl = 'http://localhost:8080/user/login/';
         this.loginName = undefined;
     }
 
-    recordLogin(name): void {
+    recordLogin(name, auth): void {
         this.loginName = name;
+        this.auth = auth;
         this.emitChange();
         // console.log('Here is service, login name is : ' + this.loginName);
     }
@@ -27,7 +29,7 @@ export class LoginService {
     }
 
     emitChange() {
-        this.nameChange$.emit(this.loginName);
+        this.nameChange$.emit({ loginName: this.loginName, auth: this.auth });
     }
 
     getData(name) {

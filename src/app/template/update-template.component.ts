@@ -3,7 +3,6 @@ import { Component, Injector, Input, OnInit } from '@angular/core';
 
 declare const swal: any;
 
-@Component({})
 export class UpdateTemplateComponent {
     @Input() public item;
     postSystemService: PosSystemService;

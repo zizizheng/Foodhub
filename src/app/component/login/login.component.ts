@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 				},
 				() => {
 					console.log(this.pack);
-					this.loginService.recordLogin(v.account);
+					this.loginService.recordLogin(v.account, this.pack.auth);
 					swal('Login Successed', 'Welcome to FoodBank, ' + this.account);
 					this.router.navigate(['page-expiry']);
 				}
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	onLogout() {
-		this.loginService.recordLogin(undefined);
+		this.loginService.recordLogin('Guest', 'guest');
 		this.isLogin = false;
 	}
 }

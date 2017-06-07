@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ServerService{
+export class ServerService {
     private serverUrl;
 
-    constructor(){
+    constructor() {
         this.serverUrl = 'http://localhost:8080/';
     }
 
     // TODO : design different function for different call
 
-    getDonationUrl(value){
+    getDonationUrl(value) {
         return this.serverUrl + 'donation/' + value;
     }
 
-    getDoneeUrl(value){
+    getDoneeUrl(value) {
         return this.serverUrl + 'donee/' + value;
     }
 
-    getDonorUrl(value){
+    getDonorUrl(value) {
         return this.serverUrl + 'donor/' + value;
     }
 
-    getUserUrl(value){
+    getUserUrl(value) {
         return this.serverUrl + 'user/' + value;
     }
 
-    getBarcodeUrl(value){
-        return this.serverUrl + 'barcode/' + value;
+    getBarcodeUrl(value) {
+        return this.serverUrl + 'stock/barcode/' + value;
     }
 
-    getExpiryUrl(value){
+    getExpiryUrl(value) {
         return this.serverUrl + 'stock/expire_dt/' + value;
     }
 }

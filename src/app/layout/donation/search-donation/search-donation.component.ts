@@ -5,12 +5,12 @@ import { ServerService } from '../../../service/server.service';
 import * as itemCat from '../donation.model';
 import { Donation } from '../donation.model';
 
-declare let swal:any;
+declare let swal: any;
 
 @Component({
-  selector: 'search-donation',
-  templateUrl: `./search-donation.component.html`,
-  // directives: [ UpdateDonationComponent ]
+    selector: 'search-donation',
+    templateUrl: `./search-donation.component.html`,
+    // directives: [ UpdateDonationComponent ]
 })
 export class SearchDonationComponent extends SearchTemplateComponent {
 
@@ -18,7 +18,7 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     exTem: Array<{}>;
 
     constructor(injector: Injector,
-                private serverService: ServerService){
+        private serverService: ServerService) {
         super(injector);
         this.category = itemCat.Category;
         this.categorySearch = itemCat.CategorySearch;
@@ -31,12 +31,12 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.exTem = [];
     }
 
-    ngOnInit(){
-        this.GetList( this.listUrl, this.primaryKey ); 
+    ngOnInit() {
+        this.GetList(this.listUrl, this.primaryKey);
     }
 
-    giveClick(){
-        this.exTem.forEach( (dn:Donation) => {
+    giveClick() {
+        this.exTem.forEach((dn: Donation) => {
             this.exList.push({
                 dn_id: dn.dn_id,
                 name: dn.item_name,
@@ -46,32 +46,32 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         });
     }
 
-    updateClick(item){
+    updateClick(item) {
         this.cleanPage();
         this.selectedItem = item;
         this.updateBut = true;
     }
 
-    cleanPage(){
+    cleanPage() {
         this.updateBut = false;
     }
 
     // TODO : check search key
-    searchClick(){
+    searchClick() {
         this.dataList = [];
-        let keyInEng = this.categoryKey[this.categorySearch.indexOf(this.searchKey)]; 
+        let keyInEng = this.categoryKey[this.categorySearch.indexOf(this.searchKey)];
 
         this.searchContent = (keyInEng === 'expire_dt')
-                           ? Date.parse(this.searchContent).toString() : this.searchContent;
-        let url = (keyInEng === 'barcode') 
-                ? this.serverService.getBarcodeUrl(this.searchContent)
-                : this.serverService.getDonationUrl(this.searchContent);
+            ? Date.parse(this.searchContent).toString() : this.searchContent;
+        let url = (keyInEng === 'barcode')
+            ? this.serverService.getBarcodeUrl(this.searchContent)
+            : this.serverService.getDonationUrl(this.searchContent);
 
         let urlParam = keyInEng;
         this.Search(url, urlParam);
     }
 
-    checkChange(item, checked, index){
+    checkChange(item, checked, index) {
         // console.log(index);
         // check for delete
         this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
@@ -83,12 +83,12 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         // console.log(this.exTem);
     }
 
-    deleteClick(){
+    deleteClick() {
         this.Delete();
     }
 
-    searchChange(value){
-        if ( value === '品項類別' || value === '倉庫地區'){
+    searchChange(value) {
+        if (value === '品項類別' || value === '倉庫地區') {
             this.category = (value === '品項類別') ? itemCat.Category : itemCat.Warehouse;
             this.selectCat = true;
             this.searchContent = '';
@@ -96,10 +96,10 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         else this.selectCat = false;
     }
 
-    notifyUpdate(isUpdate){
+    notifyUpdate(isUpdate) {
         // console.log('got emit');
-        if( isUpdate ){
-            this.GetList( this.listUrl, this.primaryKey );
+        if (isUpdate) {
+            this.GetList(this.listUrl, this.primaryKey);
         }
         this.updateBut = false;
     }

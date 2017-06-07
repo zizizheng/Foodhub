@@ -1,54 +1,53 @@
 <div id="Header" class="navbar navbar-inverse navbar-fixed-top my-header animated">
-<!--<div id="Header" class="navbar navbar-inverse navbar-fixed-top my-header animated"
+  <!--<div id="Header" class="navbar navbar-inverse navbar-fixed-top my-header animated"
     [ngClass]="{'page-scroll-header': isScrolled, 'fadeOut': isScrolled}">-->
-    <div class="container">
-        <div class="navbar-header">
-            <button id="navbar-sm" type="button" class="navbar-toggle" data-toggle="collapse" 
-                    data-target="#navbar-ex-collapse">
+  <div class="container">
+    <div class="navbar-header">
+      <button id="navbar-sm" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="/page-login" routerLinkActive="active">
-                <span>FoodHub</span><br>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a routerLink="/page-contact" routerLinkActive="active">聯絡人</a>
-                </li>
-                <li *ngIf="userName !== 'Guest'" class="dropdown">
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a routerLink="/page-donation" routerLinkActive="active">物資管理</a>
-                        </li>
-                        <li *ngIf="auth === 'admin'">
-                            <a routerLink="/page-donor" routerLinkActive="active">捐贈者管理</a>
-                        </li>
-                        <li *ngIf="auth === 'admin'">
-                            <a routerLink="/page-donee" routerLinkActive="active">受贈者管理</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="/">收據清單</a>
-                        </li>
-                        <li>
-                            <a href="/">報表</a>
-                        </li>
-                        <li *ngIf="auth === 'admin'" class="divider"></li>
-                        <li *ngIf="auth === 'admin'">
-                            <a routerLink="/page-user" routerLinkActive="active">系統管理員</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        選單&nbsp;<i class="et-down fa fa-angle-double-down fa-lg"></i></a>
-                </li>
-            </ul>
-            <p class="navbar-right navbar-text" style="padding: 0 10 0 0">歡迎
-                <a class="navbar-link" routerLink="/page-expiry" routerLinkActive="active" id="userName" style="padding: 0 0 0 10">{{userName}}</a>
-            </p>
-        </div>
+      <a class="navbar-brand" routerLink="/page-login" routerLinkActive="active">
+        <span>FoodHub</span><br>
+      </a>
     </div>
+    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a routerLink="/page-contact" routerLinkActive="active">聯絡人</a>
+        </li>
+        <li *ngIf="auth !== 'guest'" class="dropdown">
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a routerLink="/page-donation" routerLinkActive="active">物資管理</a>
+            </li>
+            <li *ngIf="auth === 'admin'">
+              <a routerLink="/page-donor" routerLinkActive="active">捐贈者管理</a>
+            </li>
+            <li *ngIf="auth === 'admin'">
+              <a routerLink="/page-donee" routerLinkActive="active">受贈者管理</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/">收據清單</a>
+            </li>
+            <li>
+              <a href="/">報表</a>
+            </li>
+            <li *ngIf="auth === 'admin'" class="divider"></li>
+            <li *ngIf="auth === 'admin'">
+              <a routerLink="/page-user" routerLinkActive="active">系統管理員</a>
+            </li>
+          </ul>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        選單&nbsp;<i class="et-down fa fa-angle-double-down fa-lg"></i></a>
+        </li>
+      </ul>
+      <p class="navbar-right navbar-text" style="padding: 0 10 0 0">歡迎
+        <a class="navbar-link" routerLink="/page-expiry" routerLinkActive="active" id="userName" style="padding: 0 0 0 10">{{userName}}</a>
+      </p>
+    </div>
+  </div>
 </div>

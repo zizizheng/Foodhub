@@ -3,7 +3,6 @@ import { Component, Injector, Input } from '@angular/core';
 
 declare const swal: any;
 
-@Component({})
 export class AddTemplateComponent {
     @Input() protected postSystemService: PosSystemService;
 
