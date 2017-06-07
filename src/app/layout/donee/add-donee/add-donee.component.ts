@@ -6,7 +6,7 @@ import * as doneeCat from '../donee.model';
 
 @Component({
     selector: 'addDonee',
-    templateUrl: `app/layout/donee/add-donee/add-donee.component.html`,
+    templateUrl: `./add-donee.component.html`,
     styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddDoneeComponent extends AddTemplateComponent {
@@ -15,18 +15,18 @@ export class AddDoneeComponent extends AddTemplateComponent {
     category = [];
 
     constructor(injector: Injector,
-                private serverService: ServerService){
-          super(injector);
-          this.category = doneeCat.Category;
+        private serverService: ServerService) {
+        super(injector);
+        this.category = doneeCat.Category;
     }
 
-    addDoneeClick(){
-      let doneeObject = this.donee.getObject();
-      let url = this.serverService.getDoneeUrl(this.donee.donee_name);
-      this.Add(url, doneeObject);
+    addDoneeClick() {
+        let doneeObject = this.donee.getObject();
+        let url = this.serverService.getDoneeUrl(this.donee.donee_name);
+        this.Add(url, doneeObject);
     }
 
-    cleanClick(){
+    cleanClick() {
         this.donee = new Donee();
     }
 }

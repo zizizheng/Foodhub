@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'page-donor',
-  templateUrl: `app/layout/donor/page-donor/page-donor.component.html`
+    selector: 'page-donor',
+    templateUrl: `./page-donor.component.html`
 })
 export class PageDonorComponent implements OnInit {
     private selectedBut = 'search';
-    ngOnInit(): void{}
+    ngOnInit(): void { }
 
-    butClick(_selectedBut: string){
+    butClick(_selectedBut: string) {
         this.selectedBut = _selectedBut;
     }
 }

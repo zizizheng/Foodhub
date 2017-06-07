@@ -41,6 +41,11 @@ import { SearchUserComponent } from './layout/user/search-user/search-user.compo
 import { UpdateUserComponent } from './layout/user/update-user/update-user.component';
 import { PageUserComponent } from './layout/user/page-user/page-user.component';
 
+// Template
+import { SearchTemplateComponent } from './template/search-template.component';
+import { AddTemplateComponent } from './template/add-template.component';
+import { UpdateTemplateComponent } from './template/update-template.component';
+
 import { PageContactComponent } from './layout/contact/page-contact/page-contact.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
@@ -78,12 +83,15 @@ import { LoginComponent } from './component/login/login.component';
     AddUserComponent,
     SearchUserComponent,
     UpdateUserComponent,
-    PageUserComponent
+    PageUserComponent,
+    SearchTemplateComponent,
+    AddTemplateComponent,
+    UpdateTemplateComponent
   ],
   providers: [
     LoginService, ServerService, PosSystemService,
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,6 +33,7 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
     }
 
     ngOnChanges() {
+        console.log('change');
         this.curName = this.donor.donor_name;
     }
 
@@ -41,6 +42,7 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
         let url = this.serverService.getDonorUrl(this.donor.donor_name);
 
         if (this.nameChange === true) {
+            this.nameChange = false;
             const that = this;
             swal({
                 title: '你將要更改捐贈者名稱！',
@@ -70,8 +72,6 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
                 }
             );
         }
-
-
     }
 
     clearClick() {
