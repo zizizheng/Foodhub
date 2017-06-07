@@ -5,13 +5,14 @@ import { Component, OnInit, Input, Injector } from '@angular/core';
 
 declare const swal: any;
 
-@Component({})
+@Component({
+})
 export class SearchTemplateComponent {
     updateBut = false;
     delCheck = false;
     selectedBut = false;
     selectCat = false;
-    searchContent ='';
+    searchContent = '';
     searchKey = '';
     delArray = [];
     category = [];
@@ -24,72 +25,72 @@ export class SearchTemplateComponent {
     selectedItem;
     protected PosSystemService: PosSystemService;
 
-    constructor(injector: Injector){
+    constructor(injector: Injector) {
         this.PosSystemService = injector.get(PosSystemService);
     }
     // tslint:disable-next-line:no-trailing-whitespace
-    
-    GetList(listUrl, primaryKey){
+
+    GetList(listUrl, primaryKey) {
         this.PosSystemService
             .getDataList(listUrl)
             .subscribe(
-                data => {
-                    console.log(data);
-                    if (this.getType(data) === this.getType([])){
-                        this.dataList = data;
-                    }
-                    else {
-                        this.dataList = this.dataList.concat(data);
-                    }
-                    console.log(this.dataList);
-                },
-                error => {
-                    const err = error.json();
-                    swal('Opps, something wrong!', err.error, 'warning');
-                },
-                () => {
-                    this.dealId();
-                    this.putIntoChecklist(primaryKey);
-                    // console.log(callback);
+            data => {
+                console.log(data);
+                if (this.getType(data) === this.getType([])) {
+                    this.dataList = data;
                 }
+                else {
+                    this.dataList = this.dataList.concat(data);
+                }
+                console.log(this.dataList);
+            },
+            error => {
+                const err = error.json();
+                swal('Opps, something wrong!', err.error, 'warning');
+            },
+            () => {
+                this.dealId();
+                this.putIntoChecklist(primaryKey);
+                // console.log(callback);
+            }
             );
     }
 
-    Search(url, urlParam){
+    Search(url, urlParam) {
         this.PosSystemService
             .getData(url, urlParam)
             .subscribe(
-                data => {
-                    if (this.getType(data) === this.getType([])) {
-                        this.dataList = data; 
-                    }
-                    else {
-                        this.dataList.push(data);
-                    }
-                },
-                error => {
-                    const err = error.json();
-                    swal('Opps, something wrong!', err.error, 'warning');
-                },
-                () => {
-                    // console.log(this.dataList);
-                    this.dealId();
-                    this.putIntoChecklist(this.primaryKey);
+            data => {
+                if (this.getType(data) === this.getType([])) {
+                    this.dataList = data;
                 }
+                else {
+                    this.dataList.push(data);
+                }
+            },
+            error => {
+                const err = error.json();
+                swal('Opps, something wrong!', err.error, 'warning');
+            },
+            () => {
+                // console.log(this.dataList);
+                this.dealId();
+                this.putIntoChecklist(this.primaryKey);
+            }
             );
 
     }
 
-    Delete(){
+    Delete() {
         this.delCheck = false;
-        for(let ob of this.delArray){
-            if(ob.checked == true){
+        for (let ob of this.delArray) {
+            if (ob.checked == true) {
                 this.delCheck = true;
                 break;
             }
         }
         // let that = this;
-        if (this.delCheck){
+        if (this.delCheck) {
             swal({
                 title: '確認刪除?',
                 text: '被刪除的紀錄將不能復原',
@@ -99,24 +100,24 @@ export class SearchTemplateComponent {
                 confirmButtonText: '是的，確定刪除',
                 cancelButtonText: '取消'
             }).then(() => {
-                for ( const ob of this.delArray ){
-                    if ( ob.checked ){
+                for (const ob of this.delArray) {
+                    if (ob.checked) {
                         this.deleteObject(ob.url);
                     }
                 }
             });
         }
         else {
-            swal("請勾選欲刪除的項目" ,"不然要刪空氣喔", "question");
+            swal("請勾選欲刪除的項目", "不然要刪空氣喔", "question");
         }
-        
+
     }
 
-    putIntoChecklist(primaryKey){
+    putIntoChecklist(primaryKey) {
         // clean array
         this.delArray = [];
-        
-        for(let item of this.dataList){
+
+        for (let item of this.dataList) {
             this.delArray.push({
                 primaryKey: item[this.primaryKey],
                 checked: false,
@@ -126,34 +127,34 @@ export class SearchTemplateComponent {
         // console.log(this.delArray);
     }
 
-    deleteObject(ob){
+    deleteObject(ob) {
         this.PosSystemService
             .deleteData(ob)
-            .subscribe( 
-                data => swal('Delete', data.success ,'success'),
-                error => {
-                    let err = error.json();
-                    swal(err.error);
-                },
-                () => {
-                    // refresh form
-                    this.GetList(this.parentUrl + 'list', this.primaryKey);
-                }
-        );
-        
+            .subscribe(
+            data => swal('Delete', data.success, 'success'),
+            error => {
+                let err = error.json();
+                swal(err.error);
+            },
+            () => {
+                // refresh form
+                this.GetList(this.parentUrl + 'list', this.primaryKey);
+            }
+            );
+
     }
 
-    dealId(){
-        if (this.getType(this.dataList) === this.getType([])){
-            for (let item of this.dataList){
-                if(item._id != undefined)
+    dealId() {
+        if (this.getType(this.dataList) === this.getType([])) {
+            for (let item of this.dataList) {
+                if (item._id != undefined)
                     item._id = item._id.slice(-8);
             }
         }
-        
+
     }
 
-    getType = function(ele){
+    getType = function (ele) {
         return Object.prototype.toString.call(ele);
     }
 }

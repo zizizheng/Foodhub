@@ -7,11 +7,11 @@ declare const swal: any;
 export class AddTemplateComponent {
     @Input() protected postSystemService: PosSystemService;
 
-    constructor(injector: Injector){
+    constructor(injector: Injector) {
         this.postSystemService = injector.get(PosSystemService);
     }
 
-    Add(url, urlParam, showMsg = true){
+    Add(url, urlParam, showMsg = true) {
         this.postSystemService.postData(url, urlParam).subscribe(
             data => {
                 swal('Congrations', data.success, 'success')
@@ -23,13 +23,13 @@ export class AddTemplateComponent {
         );
     }
 
-    GetSpecificData(url){
+    GetSpecificData(url) {
         const that = this;
-        return new Promise(function(resolve, reject){
+        return new Promise(function (resolve, reject) {
             that.postSystemService.getSpecificData(url).subscribe(
                 data => resolve(data),
                 error => reject(error),
             );
         });
-    } 
+    }
 }
