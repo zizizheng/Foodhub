@@ -4,7 +4,7 @@ import { Donor } from '../donor.model';
 import { ServerService } from '../../../service/server.service';
 
 import * as donorCat from '../donor.model';
-declare let swal:any;
+declare let swal: any;
 
 @Component({
     selector: 'add-donor',
@@ -19,20 +19,24 @@ export class AddDonorComponent extends AddTemplateComponent {
     area = [];
 
     constructor(injector: Injector,
-                private serverService: ServerService){
+        private serverService: ServerService) {
         super(injector);
         this.category = donorCat.Category;
         this.area = donorCat.Area;
     }
 
-    addDonorClick(){
-      let donorObject = this.donor.getObject();
-      let url = this.serverService.getDonorUrl(this.donor.donor_name);
-      this.Add(url, donorObject);
+    addDonorClick() {
+        let donorObject = this.donor.getObject();
+        let url = this.serverService.getDonorUrl(this.donor.donor_name);
+        this.Add(url, donorObject);
     }
 
-    catChange(value){
+    catChange(value) {
         console.log(value);
-        this.isGroup = ( value === '團體' ) ? true : false; 
+        this.isGroup = (value === '團體') ? true : false;
+    }
+
+    cleanClick() {
+
     }
 }

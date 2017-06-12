@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: `./page-donee.component.html`
 })
 export class PageDoneeComponent implements OnInit {
-    private selectedBut = 'search';
+    selectedBut = 'search';
     ngOnInit(): void { }
 
     butClick(_selectedBut: string) {

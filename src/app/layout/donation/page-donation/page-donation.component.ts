@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'page-donation',
-  templateUrl: `./page-donation.component.html`
+    selector: 'page-donation',
+    templateUrl: `./page-donation.component.html`
 })
 export class PageDonationComponent implements OnInit {
-    private selectedBut = "search";
+    selectedBut = "search";
 
-    ngOnInit(): void{}
+    ngOnInit(): void { }
 
-    butClick(_selectedBut: string){
+    butClick(_selectedBut: string) {
         this.selectedBut = _selectedBut;
         //alert(this.selectedBut);
     }

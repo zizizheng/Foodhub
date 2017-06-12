@@ -9,12 +9,12 @@ export class Donee {
     house_num: number;
     people_num: number;
 
-    public checkInput(){
+    public checkInput() {
         // TODO : 確認各種字串輸入正確與否
     }
 
-    public getObject(){
-        let object = { 
+    public getObject() {
+        let object = {
             donee_name: this.donee_name,
             phone: this.phone,
             contact_phone: this.contact_phone,
@@ -29,7 +29,7 @@ export class Donee {
         return object;
     }
 
-    pushData(ob){
+    pushData(ob) {
         this.donee_name = ob.donee_name;
         this.phone = ob.phone;
         this.contact_phone = ob.contact_phone;
@@ -42,7 +42,8 @@ export class Donee {
     }
 }
 
+export const PrimaryKey = 'donee_name';
 export let CategorySearch = ['', '單位名稱', '單位分類'];
 export let CategoryKey = ['', 'donee_name', 'category'];
-export let Category = [ '','身心障礙','街友 | 獨居老人', '弱勢清寒 | 課輔班', 
-                '弱勢家庭 - 兒童 | 青少年 | 原住民 | 新移民 | 隔代教養','其他 (特殊境遇)'];
+export let Category = ['', '身心障礙', '街友 | 獨居老人', '弱勢清寒 | 課輔班',
+    '弱勢家庭 - 兒童 | 青少年 | 原住民 | 新移民 | 隔代教養', '其他 (特殊境遇)'];

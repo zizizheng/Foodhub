@@ -9,7 +9,8 @@ declare let swal: any;
 
 @Component({
     selector: 'update-donee',
-    templateUrl: `./update-donee.component.html`
+    templateUrl: `./update-donee.component.html`,
+    styleUrls: ['./../../../template/update-template.component.css']
 })
 export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnInit, OnChanges {
     @Input() public inputItem;
@@ -18,6 +19,7 @@ export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnI
 
     donee: Donee;
     category = itemCat.Category;
+    primaryKey = itemCat.PrimaryKey;
     nameChange = false;
     curName = '';
 
@@ -28,16 +30,17 @@ export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnI
     }
 
     ngOnInit() {
-        this.initialForm();
+        this.donee.pushData(this.inputItem);
+        this.curName = this.donee[this.primaryKey];
     }
 
     ngOnChanges() {
-        this.curName = this.donee.donee_name;
+        this.curName = this.donee[this.primaryKey];
     }
 
     onSumbit() {
         let itemObject = this.donee.getObject();
-        let url = this.serverService.getDoneeUrl(this.donee.donee_name);
+        let url = this.serverService.getDoneeUrl(this.donee[this.primaryKey]);
         if (this.nameChange === true) {
             this.nameChange = false;
             const that = this;
@@ -73,10 +76,5 @@ export class UpdateDoneeComponent extends UpdateTemplateComponent implements OnI
 
     clearClick() {
         this.updated.emit(false);
-    }
-
-    initialForm() {
-        this.donee.pushData(this.inputItem);
-        this.curName = this.donee.donee_name;
     }
 }

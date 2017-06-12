@@ -8,8 +8,9 @@ import { ServerService } from '../../../service/server.service';
 import * as itemCat from '../donation.model';
 
 @Component({
-  selector: 'update-donation',
-  templateUrl: `./update-donation.component.html`
+    selector: 'update-donation',
+    templateUrl: `./update-donation.component.html`,
+    styleUrls: ['./../../../template/update-template.component.css']
 })
 export class UpdateDonationComponent extends UpdateTemplateComponent implements OnInit, OnChanges {
     @Input() public inputItem;
@@ -21,33 +22,33 @@ export class UpdateDonationComponent extends UpdateTemplateComponent implements 
     PosSystemService: PosSystemService;
 
     constructor(injector: Injector,
-                private serverService: ServerService){
+        private serverService: ServerService) {
         super(injector);
         this.item = new Donation();
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.item.pushData(this.inputItem);
     }
 
-    ngOnChanges(){
-        this.item.pushData(this.inputItem);        
+    ngOnChanges() {
+        this.item.pushData(this.inputItem);
     }
 
-    sendClick(){
+    sendClick() {
         let itemObject = this.item.getObject();
         let url = this.serverService.getDonationUrl(this.item.dn_id);
         this.Update(url, itemObject).then(
             (data) => {
                 // edit and update, emit true
-                if(data) this.updated.emit(true);
+                if (data) this.updated.emit(true);
             }
         );
     }
 
-    clearClick(){
+    clearClick() {
         // cancel update, emit false
         this.updated.emit(false);
     }
-    
+
 }

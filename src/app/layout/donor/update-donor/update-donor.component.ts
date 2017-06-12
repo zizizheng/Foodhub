@@ -9,7 +9,8 @@ declare let swal: any;
 
 @Component({
     selector: 'update-donor',
-    templateUrl: `./update-donor.component.html`
+    templateUrl: `./update-donor.component.html`,
+    styleUrls: ['./../../../template/update-template.component.css']
 })
 export class UpdateDonorComponent extends UpdateTemplateComponent implements OnInit, OnChanges {
     @Input() public inputItem;
@@ -20,6 +21,7 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
     category = itemCat.Category;
     area = itemCat.Area;
     nameChange = false;
+    primaryKey = itemCat.PrimaryKey;
     curName = '';
 
     constructor(injector: Injector,
@@ -29,17 +31,18 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
     }
 
     ngOnInit() {
-        this.initialForm();
+        this.donor.pushData(this.inputItem);
+        this.curName = this.donor[this.primaryKey];
     }
 
     ngOnChanges() {
         console.log('change');
-        this.curName = this.donor.donor_name;
+        this.curName = this.donor[this.primaryKey];
     }
 
     onSumbit() {
         let itemObject = this.donor.getObject();
-        let url = this.serverService.getDonorUrl(this.donor.donor_name);
+        let url = this.serverService.getDonorUrl(this.donor[this.primaryKey]);
 
         if (this.nameChange === true) {
             this.nameChange = false;
@@ -80,10 +83,5 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
 
     catChange(value) {
         this.isGroup = (value === "團體") ? true : false;
-    }
-
-    initialForm() {
-        this.donor.pushData(this.inputItem);
-        this.curName = this.donor.donor_name;
     }
 }

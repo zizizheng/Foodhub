@@ -22,8 +22,8 @@ export class HeaderComponent implements OnInit {
 			this.userName = object.loginName;
 			this.auth = object.auth;
 		});
-		this.userName = 'Guest';
-		this.auth = 'guest';
+		this.userName = 'Test';
+		this.auth = 'admin';
 	}
 
 	ngOnInit() {

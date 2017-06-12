@@ -9,12 +9,12 @@ export class Donor {
     contact_phone: string;
     email: string;
 
-    public checkInput(){
+    public checkInput() {
         // TODO : 確認各種字串輸入正確與否
     }
 
-    public getObject(){
-        let object = { 
+    public getObject() {
+        let object = {
             donor_name: this.donor_name,
             ic: this.ic,
             phone: this.phone,
@@ -29,7 +29,7 @@ export class Donor {
         return object;
     }
 
-    pushData(ob){
+    pushData(ob) {
         this.ic = ob.ic;
         this.donor_name = ob.donor_name;
         this.phone = ob.phone;
@@ -42,7 +42,8 @@ export class Donor {
     }
 }
 
+export const PrimaryKey = 'donor_name';
 export let CategorySearch = ['', '姓名', '地區', '分類'];
 export let CategoryKey = ['', 'donor_name', 'area', 'category'];
 export let Category = ['', '個人', '團體'];
-export let Area = [ '', '北部', '中部', '南部', '東部' ];
+export let Area = ['', '北部', '中部', '南部', '東部'];

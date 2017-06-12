@@ -9,7 +9,8 @@ declare let swal: any;
 
 @Component({
     selector: 'update-user',
-    templateUrl: `./update-user.component.html`
+    templateUrl: `./update-user.component.html`,
+    styleUrls: ['./../../../template/update-template.component.css']
 })
 export class UpdateUserComponent extends UpdateTemplateComponent implements OnInit, OnChanges {
     @Input() public inputItem;
@@ -19,6 +20,7 @@ export class UpdateUserComponent extends UpdateTemplateComponent implements OnIn
     area = itemCat.Area;
     auth = itemCat.Auth;
     nameChange = false;
+    primaryKey = itemCat.PrimaryKey;
     curName = '';
 
     constructor(injector: Injector,
@@ -29,21 +31,22 @@ export class UpdateUserComponent extends UpdateTemplateComponent implements OnIn
 
     ngOnInit() {
         this.user.pushData(this.inputItem);
+        this.curName = this.user[this.primaryKey];
     }
 
     ngOnChanges() {
-        this.user.pushData(this.inputItem);
+        this.curName = this.user[this.primaryKey];
     }
 
     onSumbit() {
         let itemObject = this.user.getObject();
-        let url = this.serverService.getUserUrl(this.user.user_name);
+        let url = this.serverService.getUserUrl(this.user[this.primaryKey]);
         if (this.nameChange === true) {
             this.nameChange = false;
             const that = this;
             swal({
-                title: '你將要更改使用者名稱！',
-                text: "舊有使用者資料將被刪除",
+                title: '你將要更改使用者帳戶!!！',
+                text: '舊有使用者資料將被刪除',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
