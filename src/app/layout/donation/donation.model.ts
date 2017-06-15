@@ -13,20 +13,21 @@ export class Donation {
     item_unitprice: number;
     barcode: string;
     area: string;
+    contractor: string;
 
-    constructor(){
+    constructor() {
         this.weight = 0;
         this.item_qt = 0;
         this.item_unitprice = 0;
     }
 
-    public checkInput(){
+    public checkInput() {
         // TODO : 確認各種字串輸入正確與否
     }
 
-    public getObject(){
+    public getObject() {
         // TODO : 確認 id 與 date 格式如何處理
-        let object = { 
+        let object = {
             dn_id: this.dn_id,
             donor_name: this.donor_name,
             item_name: this.item_name,
@@ -39,13 +40,14 @@ export class Donation {
             memo: this.memo,
             item_unitprice: this.item_unitprice,
             barcode: this.barcode,
-            area: this.area
+            area: this.area,
+            contractor: this.contractor
         };
         // console.log('Transform object = ' + object);
         return object;
     }
 
-    pushData(ob){
+    pushData(ob) {
         this.dn_id = ob.dn_id;
         this.donor_name = ob.donor_name;
         this.item_name = ob.item_name;
@@ -59,10 +61,11 @@ export class Donation {
         this.item_unitprice = ob.item_unitprice;
         this.barcode = ob.barcode;
         this.area = ob.area;
+        this.contractor = ob.contractor;
     }
 }
 
-export let Category = [ '','營養品','沖泡品','主食類','罐頭','生活用品','零食','調味品','飲料','生鮮食品','其他'];
-export let CategorySearch = [ '', '品項名稱', '過期日', '品項類別', '倉庫地區', '條碼'];
-export let CategoryKey = [ '', 'item_name', 'expire_dt', 'category', 'area', 'barcode'];
+export let Category = ['', '營養品', '沖泡品', '主食類', '罐頭', '生活用品', '零食', '調味品', '飲料', '生鮮食品', '其他'];
+export let CategorySearch = ['', '品項名稱', '過期日', '品項類別', '倉庫地區', '條碼'];
+export let CategoryKey = ['', 'item_name', 'expire_dt', 'category', 'area', 'barcode'];
 export let Warehouse = ['', '台中', '高雄'];

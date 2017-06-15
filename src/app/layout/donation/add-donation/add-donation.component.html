@@ -17,7 +17,7 @@
       </div>
       <div class="col-sm-6 col-md-3">
         <label for="" class="control-label">承辦人</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="contractor" [(ngModel)]="contractor">
       </div>
     </div>
 
@@ -56,17 +56,14 @@
             <td data-th="單位"><input name="item_unit{{i}}" class="form-control" [(ngModel)]="dn.item_unit"></td>
             <td data-th="數量"><input name="item_qt{{i}}" class="form-control" [(ngModel)]="dn.item_qt"></td>
             <td data-th="單價"><input name="item_unitprice{{i}}" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
-            <td data-th="條碼"><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" 
-                      (keyup)="keyBarcode($event, dn.barcode, item)">
-            </td>          
+            <td data-th="條碼"><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" (keyup)="keyBarcode($event, dn.barcode, item)">
+            </td>
           </tr>
         </tbody>
       </table>
-      
-      <i id="newRow" class="fa fa-4x fa-caret-down fa-fw text-info text-center animated bounceIn clickable"
-         (click)="newRow()"></i>
-      <i *ngIf="donations.length > 1" class="fa fa-4x fa-caret-up fa-fw text-info text-center animated bounceIn clickable"
-         (click)="delRow()"></i>
+
+      <i id="newRow" class="fa fa-4x fa-caret-down fa-fw text-info text-center animated bounceIn clickable" (click)="newRow()"></i>
+      <i *ngIf="donations.length > 1" class="fa fa-4x fa-caret-up fa-fw text-info text-center animated bounceIn clickable" (click)="delRow()"></i>
 
       <hr>
 

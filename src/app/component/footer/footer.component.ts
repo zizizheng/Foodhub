@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-
-    constructor(private router: Router){
-    }
+  url: string;
+  constructor(private router: Router) {
+    this.url = router.url;
+  }
 }

@@ -1,10 +1,7 @@
-
-
 <div class="row wrapper__panel">
   <form #searchForm="ngForm">
     <div class="col-md-4 searchBar">
-      <input name="user-name" type="text" class="form-control" placeholder="搜尋使用者" 
-            [(ngModel)]="searchWord" required> 
+      <input name="user-name" type="text" class="form-control" placeholder="搜尋使用者" [(ngModel)]="searchContent" required>
     </div>
     <div class="col-md-4 searchBar">
       <select name="user-info" class="form-control" [(ngModel)]="searchKey" required>
@@ -12,8 +9,7 @@
       </select>
     </div>
     <div class="col-md-2 searchBar text-center">
-      <button type="submit" class="btn btn-primary" (click)="searchClick()" 
-              [disabled]="!searchForm.form.valid">送出</button>
+      <button type="submit" class="btn btn-primary" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
     </div>
   </form>
 </div>
