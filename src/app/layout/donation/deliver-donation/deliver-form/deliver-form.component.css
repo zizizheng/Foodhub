@@ -1,0 +1,29 @@
+#export-list {
+  width: 85%;
+  border: 1px solid gray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: papayawhip;
+  background-color: dimgray;
+  padding-top: 15px;
+  margin: 0;
+  height: 2em;
+}
+
+table>tbody>tr>th {
+  vertical-align: middle;
+}
+
+section {
+  margin: 10px;
+}
+
+button {
+  margin: 10px 0;
+}

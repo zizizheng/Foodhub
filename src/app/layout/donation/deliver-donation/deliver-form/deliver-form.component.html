@@ -1,7 +1,7 @@
 <hr class="specific">
 <div id="export-list" class="container">
   <h1 class="text-center">物資簽領單</h1>
-  <form action="">
+  <form #deliverForm="ngForm" action="">
     <section class="row text-center">
       <div class="col-md-3">
         <label class="control-label" for="">全物字號</label>
@@ -43,10 +43,10 @@
       </tr>
     </tbody>
   </table>
-  
+
   <div class="text-center">
     <button class="btn btn-success">產生表單</button>
-    <button type="button" class="btn btn-warning" (click)="cancelExport()">取消</button>
+    <button type="button" class="btn btn-warning" (click)="cancelDeliver()">取消</button>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 export class Donation {
+    _id: string;
     dn_id: string;
     donor_name: string;
     item_name: string;
@@ -28,6 +29,7 @@ export class Donation {
     public getObject() {
         // TODO : 確認 id 與 date 格式如何處理
         let object = {
+            _id: this._id,
             dn_id: this.dn_id,
             donor_name: this.donor_name,
             item_name: this.item_name,
@@ -43,11 +45,12 @@ export class Donation {
             area: this.area,
             contractor: this.contractor
         };
-        // console.log('Transform object = ' + object);
+        // console.log(object);
         return object;
     }
 
     pushData(ob) {
+        this._id = ob._id;
         this.dn_id = ob.dn_id;
         this.donor_name = ob.donor_name;
         this.item_name = ob.item_name;

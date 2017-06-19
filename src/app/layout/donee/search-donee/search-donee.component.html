@@ -1,23 +1,21 @@
 <form #searchForm="ngForm">
   <div class="row wrapper__panel">
     <div class="col-sm-4 searchBar">
-      <input class="form-control" placeholder="你要找什麼呢？" name="donee-search"
-             [(ngModel)]="searchWord" *ngIf="!selectCat" required> 
-      
-      <select *ngIf="selectCat" name="donee-cat" class="form-control" [(ngModel)]="searchWord" 
-              required>
+      <input class="form-control" placeholder="你要找什麼呢？" name="donee-search" [(ngModel)]="searchWord" *ngIf="!selectCat" required>
+
+      <select *ngIf="selectCat" name="donee-cat" class="form-control" [(ngModel)]="searchWord" required>
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
     </div>
     <div class="col-sm-4 searchBar">
-      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" 
-            (change)="searchChange(catSelect.value)" required>
+      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" (change)="searchChange(catSelect.value)"
+        required>
         <option *ngFor="let donee of categorySearch" [value]="donee">{{donee}}</option>
       </select>
     </div>
-    <div class="col-sm-2 searchBar text-center">
-      <button type="submit" class="btn btn-primary" (click)="searchClick()"
-              [disabled]="!searchForm.form.valid">送出</button>
+    <div class="col-sm-4 searchBar text-center">
+      <button type="submit" class="btn btn-primary col-sm-4" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
+      <button type="button" class="btn btn-info col-sm-offset-4" (click)="ShowList()">清單</button>
     </div>
   </div>
 </form>
@@ -44,7 +42,7 @@
     <tbody>
       <tr *ngFor="let donee of dataList">
         <td>
-          <input type="checkbox" (change)="checkChange(donee, $event.target.checked)"> 
+          <input type="checkbox" (change)="checkChange(donee, $event.target.checked)">
         </td>
         <td data-th="單位名稱">{{donee.donee_name}}</td>
         <td data-th="單位分類">{{donee.category}}</td>

@@ -13,10 +13,6 @@ declare let swal: any;
     // directives: [ UpdateDonationComponent ]
 })
 export class SearchDonationComponent extends SearchTemplateComponent {
-
-    exList: Array<{}>;
-    exTem: Array<{}>;
-
     constructor(injector: Injector,
         private serverService: ServerService) {
         super(injector);
@@ -27,23 +23,10 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.primaryKey = 'dn_id';
         this.parentUrl = this.serverService.getDonationUrl('');
         this.listUrl = this.serverService.getDonationUrl('list');
-        this.exList = [];
-        this.exTem = [];
     }
 
     ngOnInit() {
-        this.GetList(this.listUrl, this.primaryKey);
-    }
-
-    giveClick() {
-        this.exTem.forEach((dn: Donation) => {
-            this.exList.push({
-                dn_id: dn.dn_id,
-                name: dn.item_name,
-                unit: dn.item_unit,
-                qt: dn.item_qt
-            });
-        });
+        this.ShowList();
     }
 
     updateClick(item) {
@@ -64,7 +47,7 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.searchContent = (keyInEng === 'expire_dt')
             ? Date.parse(this.searchContent).toString() : this.searchContent;
         let url = (keyInEng === 'barcode')
-            ? this.serverService.getBarcodeUrl(this.searchContent)
+            ? this.serverService.getStockBarcodeUrl(this.searchContent)
             : this.serverService.getDonationUrl(this.searchContent);
 
         let urlParam = keyInEng;
@@ -72,15 +55,9 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     }
 
     checkChange(item, checked, index) {
-        // console.log(index);
         // check for delete
         this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
 
-        // Find the index of item. Not find(checked yet) -> push, Find(already check) -> delete
-        let i = this.exTem.findIndex((o) => { return o['item_name'] === item.item_name; });
-        if (i < 0) this.exTem.push(item);
-        else this.exTem.splice(i, 1);
-        // console.log(this.exTem);
     }
 
     deleteClick() {
@@ -99,7 +76,7 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     notifyUpdate(isUpdate) {
         // console.log('got emit');
         if (isUpdate) {
-            this.GetList(this.listUrl, this.primaryKey);
+            this.ShowList();
         }
         this.updateBut = false;
     }

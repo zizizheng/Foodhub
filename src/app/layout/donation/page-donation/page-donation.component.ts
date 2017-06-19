@@ -5,9 +5,11 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: `./page-donation.component.html`
 })
 export class PageDonationComponent implements OnInit {
-    selectedBut = "search";
+    selectedBut: string;
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.selectedBut = "search";
+    }
 
     butClick(_selectedBut: string) {
         this.selectedBut = _selectedBut;

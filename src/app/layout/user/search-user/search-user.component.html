@@ -8,8 +8,9 @@
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-2 searchBar text-center">
-      <button type="submit" class="btn btn-primary" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
+    <div class="col-md-4 searchBar text-center">
+      <button type="submit" class="btn btn-primary col-sm-4" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
+      <button type="button" class="btn btn-info col-sm-offset-4" (click)="ShowList()">清單</button>
     </div>
   </form>
 </div>

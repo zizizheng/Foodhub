@@ -29,7 +29,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
         private serverService: ServerService,
         private ref: ChangeDetectorRef) {
         super(injector);
-        this.barcodeLength = 5;
+        this.barcodeLength = 0;
     }
 
     ngOnInit() {
@@ -57,19 +57,18 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
     }
 
     keyBarcode(e, barcode, item) {
-        if (e.keyCode !== 8)
-            if (barcode !== undefined && barcode.length > this.barcodeLength)
-                this.fillByBarcode(barcode, item);
+        if (barcode !== undefined && barcode.length > this.barcodeLength)
+            this.fillByBarcode(barcode, item);
     }
 
     fillByBarcode(barcode, item) {
         // $('#barcodeInput').removeClass('success fail');
         let comp = this;
         let url = this.serverService.getBarcodeUrl(barcode);
-        this.GetSpecificData(url).then((res: Donation) => {
-            item.item_name = res.item_name;
-            item.item_unit = res.item_unit;
-            item.item_unitprice = res.item_unitprice;
+        this.GetSpecificData(url).then((res) => {
+            item.item_name = res['item_name'];
+            item.item_unit = res['item_unit'];
+            item.item_unitprice = res['item_unitprice'];
             setTimeout(function () { }, 2500);
 
         }).catch(function (e) {

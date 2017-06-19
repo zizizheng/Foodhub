@@ -56,7 +56,7 @@
             <td data-th="單位"><input name="item_unit{{i}}" class="form-control" [(ngModel)]="dn.item_unit"></td>
             <td data-th="數量"><input name="item_qt{{i}}" class="form-control" [(ngModel)]="dn.item_qt"></td>
             <td data-th="單價"><input name="item_unitprice{{i}}" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
-            <td data-th="條碼"><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" (keyup)="keyBarcode($event, dn.barcode, item)">
+            <td data-th="條碼"><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" (keyup)="keyBarcode($event, dn.barcode, dn)">
             </td>
           </tr>
         </tbody>

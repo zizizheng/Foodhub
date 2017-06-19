@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExportDonationComponent } from './export-donation.component';
+import { DeliverFormComponent } from './deliver-form.component';
 
-describe('ExportDonationComponent', () => {
-  let component: ExportDonationComponent;
-  let fixture: ComponentFixture<ExportDonationComponent>;
+describe('DeliverFormComponent', () => {
+  let component: DeliverFormComponent;
+  let fixture: ComponentFixture<DeliverFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExportDonationComponent ]
+      declarations: [ DeliverFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExportDonationComponent);
+    fixture = TestBed.createComponent(DeliverFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

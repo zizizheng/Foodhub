@@ -1,4 +1,3 @@
-import { ExportDonationComponent } from './layout/donation/export-donation/export-donation.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -50,6 +49,8 @@ import { PageContactComponent } from './layout/contact/page-contact/page-contact
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { LoginComponent } from './component/login/login.component';
+import { DeliverDonationComponent } from './layout/donation/deliver-donation/deliver-donation.component';
+import { DeliverFormComponent } from './layout/donation/deliver-donation/deliver-form/deliver-form.component';
 
 @NgModule({
   imports: [
@@ -72,7 +73,6 @@ import { LoginComponent } from './component/login/login.component';
     UpdateDoneeComponent,
     PageDonationComponent,
     AddDonationComponent,
-    ExportDonationComponent,
     ImportDonationComponent,
     SearchDonationComponent,
     UpdateDonationComponent,
@@ -84,6 +84,8 @@ import { LoginComponent } from './component/login/login.component';
     SearchUserComponent,
     UpdateUserComponent,
     PageUserComponent,
+    DeliverDonationComponent,
+    DeliverFormComponent,
     // SearchTemplateComponent,
     // AddTemplateComponent,
     // UpdateTemplateComponent

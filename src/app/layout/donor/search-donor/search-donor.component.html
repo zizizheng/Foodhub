@@ -1,28 +1,26 @@
 <form #searchForm="ngForm">
   <div class="row wrapper__panel">
     <div class="col-md-4 searchBar">
-      <input *ngIf="!selectCat" class="form-control" name="donor-search" 
-      placeholder="輸入捐贈者名稱" [(ngModel)]="searchWord" required>
+      <input *ngIf="!selectCat" class="form-control" name="donor-search" placeholder="輸入捐贈者名稱" [(ngModel)]="searchWord" required>
       <!--選用分類時出現-->
-      <select *ngIf="selectCat" class="form-control" name="donor-cat"
-              [(ngModel)]="searchWord" required>
+      <select *ngIf="selectCat" class="form-control" name="donor-cat" [(ngModel)]="searchWord" required>
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
-      </select> 
+      </select>
     </div>
-    
+
     <div class="col-md-4 searchBar">
-      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey"
-              (change)="searchChange(catSelect.value)" required>
+      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" (change)="searchChange(catSelect.value)"
+        required>
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-2 searchBar text-center">
-      <button type="submit" class="btn btn-primary" (click)="searchClick()"
-              [disabled]="!searchForm.form.valid">送出</button>
+    <div class="col-md-4 searchBar text-center">
+      <button type="submit" class="btn btn-primary col-sm-4" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
+      <button type="button" class="btn btn-info col-sm-offset-4" (click)="ShowList()">清單</button>
     </div>
   </div>
 </form>
-  
+
 <div class="row wrapper__panel">
   <table class="table table-bordered table-hover table-striped table-sm animated zoomIn table-rwd">
     <thead>
@@ -42,7 +40,7 @@
     <tbody>
       <tr *ngFor="let donor of dataList">
         <td>
-          <input type="checkbox" (change)="checkChange(donor, $event.target.checked)"> 
+          <input type="checkbox" (change)="checkChange(donor, $event.target.checked)">
         </td>
         <td data-th="姓名">{{donor.donor_name}}</td>
         <td data-th="單位分類">{{donor.category}}</td>

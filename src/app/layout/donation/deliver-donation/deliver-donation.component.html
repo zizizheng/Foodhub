@@ -35,7 +35,7 @@
         <th>有效期限</th>
         <th>品項分類</th>
         <th>剩餘數量</th>
-        <th>選項</th>
+        <!--<th>選項</th>-->
       </tr>
     </thead>
     <tbody>
@@ -47,14 +47,16 @@
         <td data-th="有效期限" class="margin">{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
         <td data-th="品項分類" class="margin">{{item.category}}</td>
         <td data-th="剩餘數量" class="margin">{{item.item_qt}}</td>
-        <td class="center">
+        <!--<td class="center">
           <a pageScroll href="#update-donation"><button class="btn btn-success" (click)="updateClick(item)">更新</button></a>
-        </td>
+        </td>-->
       </tr>
     </tbody>
   </table>
   <div class="text-center">
-    <button class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+    <!--s-->
+    <button class="btn btn-info" (click)="giveClick()">捐贈</button>
   </div>
 </div>
 <update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>
+<deliver-form *ngIf="exList.length" [exList]="exList"></deliver-form>

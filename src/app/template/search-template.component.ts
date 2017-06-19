@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { ServerService } from './../service/server.service';
 import { Http } from '@angular/http';
 import { PosSystemService } from '../service/pos-system.service';
@@ -28,30 +29,8 @@ export class SearchTemplateComponent {
     }
     // tslint:disable-next-line:no-trailing-whitespace
 
-    GetList(listUrl, primaryKey) {
-        this.PosSystemService
-            .getDataList(listUrl)
-            .subscribe(
-            data => {
-                console.log(data);
-                if (this.getType(data) === this.getType([])) {
-                    this.dataList = data;
-                }
-                else {
-                    this.dataList = this.dataList.concat(data);
-                }
-                console.log(this.dataList);
-            },
-            error => {
-                const err = error.json();
-                swal('Opps, something wrong!', err.error, 'warning');
-            },
-            () => {
-                this.dealId();
-                this.putIntoChecklist(primaryKey);
-                // console.log(callback);
-            }
-            );
+    ShowList() {
+        this.getList(this.listUrl, this.primaryKey);
     }
 
     Search(url, urlParam) {
@@ -71,11 +50,9 @@ export class SearchTemplateComponent {
                 swal('Opps, something wrong!', err.error, 'warning');
             },
             () => {
-                console.log(this.dataList);
-                this.dealId();
+                // console.log(this.dataList);
                 this.putIntoChecklist(this.primaryKey);
-            }
-            );
+            });
 
     }
 
@@ -111,6 +88,29 @@ export class SearchTemplateComponent {
 
     }
 
+    private getList(listUrl, primaryKey) {
+        this.PosSystemService
+            .getDataList(listUrl)
+            .subscribe(
+            data => {
+                if (this.getType(data) === this.getType([])) {
+                    this.dataList = data;
+                }
+                else {
+                    this.dataList = this.dataList.concat(data);
+                }
+                console.log(this.dataList);
+            },
+            error => {
+                const err = error.json();
+                swal('Opps, something wrong!', err.error, 'warning');
+            },
+            () => {
+                this.putIntoChecklist(primaryKey);
+                // console.log(callback);
+            });
+    }
+
     putIntoChecklist(primaryKey) {
         // clean array
         this.delArray = [];
@@ -136,9 +136,8 @@ export class SearchTemplateComponent {
             },
             () => {
                 // refresh form
-                this.GetList(this.parentUrl + 'list', this.primaryKey);
-            }
-            );
+                this.getList(this.parentUrl + 'list', this.primaryKey);
+            });
 
     }
 

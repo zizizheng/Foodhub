@@ -27,7 +27,7 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
     }
 
     ngOnInit() {
-        this.GetList(this.listUrl, this.primaryKey);
+        this.ShowList();
     }
 
     searchClick() {
@@ -63,7 +63,7 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
         // console.log('got emit');
         // console.log(isUpdate);
         if (isUpdate) {
-            this.GetList(this.listUrl, this.primaryKey);
+            this.ShowList();
         }
         this.updateBut = false;
     }

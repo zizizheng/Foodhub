@@ -26,11 +26,24 @@ export class ServerService {
         return this.serverUrl + 'user/' + value;
     }
 
-    getBarcodeUrl(value) {
+    getStockBarcodeUrl(value) {
         return this.serverUrl + 'stock/barcode/' + value;
+    }
+
+    getBarcodeUrl(value) {
+        return this.serverUrl + 'barcode/' + value;
     }
 
     getExpiryUrl(value) {
         return this.serverUrl + 'stock/expire_dt/' + value;
     }
+
+    getStockUrl(value) {
+        return this.serverUrl + 'stock/' + value;
+    }
+
+    getDeliveryUrl(value) {
+        return this.serverUrl + 'delivery/' + value;
+    }
+
 }

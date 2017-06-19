@@ -22,7 +22,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
     }
 
     ngOnInit() {
-        this.GetList(this.listUrl, this.primaryKey);
+        this.ShowList();
     }
 
     searchClick() {
@@ -54,7 +54,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
 
     notifyUpdate(isUpdate) {
         // console.log('got emit');
-        if (isUpdate) this.GetList(this.listUrl, this.primaryKey);
+        if (isUpdate) this.ShowList();
         this.updateBut = false;
     }
 }
