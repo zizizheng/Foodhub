@@ -8,7 +8,7 @@ export class PageDonationComponent implements OnInit {
     selectedBut: string;
 
     ngOnInit(): void {
-        this.selectedBut = "search";
+        this.selectedBut = "donation";
     }
 
     butClick(_selectedBut: string) {

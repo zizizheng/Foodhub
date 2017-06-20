@@ -10,7 +10,6 @@ declare let swal: any;
 @Component({
     selector: 'search-donation',
     templateUrl: `./search-donation.component.html`,
-    // directives: [ UpdateDonationComponent ]
 })
 export class SearchDonationComponent extends SearchTemplateComponent {
     constructor(injector: Injector,

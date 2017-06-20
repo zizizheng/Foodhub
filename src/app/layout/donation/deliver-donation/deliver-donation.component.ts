@@ -3,7 +3,7 @@ import { SearchTemplateComponent } from './../../../template/search-template.com
 import { Component, enableProdMode, ModuleWithProviders, Injector } from '@angular/core';
 import { ServerService } from '../../../service/server.service';
 import * as itemCat from '../donation.model';
-import { Donation } from '../donation.model';
+import { Stock } from '../stock.model';
 
 declare let swal: any;
 
@@ -23,7 +23,7 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 		this.category = itemCat.Category;
 		this.categorySearch = itemCat.CategorySearch;
 		this.categoryKey = itemCat.CategoryKey;
-		this.dataList = new Array<Donation>();
+		this.dataList = new Array<Stock>();
 		this.primaryKey = 'dn_id';
 		this.parentUrl = this.serverService.getStockUrl('');
 		this.listUrl = this.serverService.getStockUrl('list');
@@ -35,8 +35,8 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 		this.ShowList();
 	}
 
-	giveClick() {
-		this.exTem.forEach((dn: Donation) => {
+	deliverClick() {
+		this.exTem.forEach((dn: Stock) => {
 			this.exList.push({
 				dn_id: dn.dn_id,
 				name: dn.item_name,
@@ -57,15 +57,14 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 	}
 
 	// TODO : check search key
+	// Search from stock
 	searchClick() {
 		this.dataList = [];
 		let keyInEng = this.categoryKey[this.categorySearch.indexOf(this.searchKey)];
 
 		this.searchContent = (keyInEng === 'expire_dt')
 			? Date.parse(this.searchContent).toString() : this.searchContent;
-		let url = (keyInEng === 'barcode')
-			? this.serverService.getStockBarcodeUrl(this.searchContent)
-			: this.serverService.getStockUrl(this.searchContent);
+		let url = this.serverService.getStockUrl(this.searchContent);
 
 		let urlParam = keyInEng;
 		this.Search(url, urlParam);

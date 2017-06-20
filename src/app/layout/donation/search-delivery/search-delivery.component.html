@@ -30,11 +30,11 @@
       <tr class="tr-only-hide">
         <th>
           <input type="checkbox" value=""> </th>
-        <th>全贈字號</th>
+        <th>全物字號</th>
         <th>品項名稱</th>
         <th>有效期限</th>
         <th>品項分類</th>
-        <th>剩餘數量</th>
+        <th>贈與數量</th>
         <!--<th>選項</th>-->
       </tr>
     </thead>
@@ -42,21 +42,19 @@
       <tr *ngFor="let item of dataList; let i = index">
         <td>
           <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked, i)"> </td>
-        <td data-th="全贈字號" class="margin">{{item.dn_id}}</td>
+        <td data-th="全物字號" class="margin">{{item.dn_id}}</td>
         <td data-th="品項名稱" class="margin">{{item.item_name}}</td>
         <td data-th="有效期限" class="margin">{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
         <td data-th="品項分類" class="margin">{{item.category}}</td>
-        <td data-th="剩餘數量" class="margin">{{item.item_qt}}</td>
+        <td data-th="贈與數量" class="margin">{{item.item_qt}}</td>
         <!--<td class="center">
           <a pageScroll href="#update-donation"><button class="btn btn-success" (click)="updateClick(item)">更新</button></a>
         </td>-->
       </tr>
     </tbody>
   </table>
-  <div class="text-center">
-    <!--s-->
-    <button class="btn btn-info" (click)="deliverClick()">捐贈</button>
-  </div>
+  <!--<div class="text-center">
+    <button class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+  </div>-->
 </div>
-<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>
-<deliver-form *ngIf="exList.length" [exList]="exList"></deliver-form>
+<!--<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>-->

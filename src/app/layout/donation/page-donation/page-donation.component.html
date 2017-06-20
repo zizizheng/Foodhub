@@ -20,13 +20,15 @@
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <div class="btn-group pull-left">
-          <a class="btn btn-default btn-md" (click)="butClick('search')" [class.active]="selectedBut === 'search'"> ## 捐贈紀錄 </a>
+          <a class="btn btn-default btn-md" (click)="butClick('donation')" [class.active]="selectedBut === 'donation'"> ## 捐贈紀錄 </a>
+          <a class="btn btn-default btn-md" (click)="butClick('delivery')" [class.active]="selectedBut === 'delivery'"> ## 贈與紀錄 </a>
           <a class="btn btn-default btn-md" (click)="butClick('add')" [class.active]="selectedBut === 'add'"> ## 新增</a>
 
           <a class="btn btn-default btn-md" (click)="butClick('deliver')" [class.active]="selectedBut === 'deliver'"> ## 贈與 </a>
         </div>
       </div>
-      <search-donation *ngIf="selectedBut === 'search'"></search-donation>
+      <search-donation *ngIf="selectedBut === 'donation'"></search-donation>
+      <search-delivery *ngIf="selectedBut === 'delivery'"></search-delivery>
       <add-donation *ngIf="selectedBut === 'add'"></add-donation>
       <deliver-donation *ngIf="selectedBut === 'deliver'"></deliver-donation>
     </div>

@@ -30,7 +30,6 @@ import { UpdateDoneeComponent } from './layout/donee/update-donee/update-donee.c
 // Donation
 import { PageDonationComponent } from './layout/donation/page-donation/page-donation.component';
 import { AddDonationComponent } from './layout/donation/add-donation/add-donation.component';
-import { ImportDonationComponent } from './layout/donation/import-donation/import-donation.component';
 import { SearchDonationComponent } from './layout/donation/search-donation/search-donation.component';
 import { UpdateDonationComponent } from './layout/donation/update-donation/update-donation.component';
 
@@ -51,6 +50,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { LoginComponent } from './component/login/login.component';
 import { DeliverDonationComponent } from './layout/donation/deliver-donation/deliver-donation.component';
 import { DeliverFormComponent } from './layout/donation/deliver-donation/deliver-form/deliver-form.component';
+import { SearchDeliveryComponent } from './layout/donation/search-delivery/search-delivery.component';
 
 @NgModule({
   imports: [
@@ -73,7 +73,6 @@ import { DeliverFormComponent } from './layout/donation/deliver-donation/deliver
     UpdateDoneeComponent,
     PageDonationComponent,
     AddDonationComponent,
-    ImportDonationComponent,
     SearchDonationComponent,
     UpdateDonationComponent,
     PageContactComponent,
@@ -86,6 +85,7 @@ import { DeliverFormComponent } from './layout/donation/deliver-donation/deliver
     PageUserComponent,
     DeliverDonationComponent,
     DeliverFormComponent,
+    SearchDeliveryComponent,
     // SearchTemplateComponent,
     // AddTemplateComponent,
     // UpdateTemplateComponent
