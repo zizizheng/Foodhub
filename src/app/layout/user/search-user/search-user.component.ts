@@ -5,7 +5,7 @@ import { User } from '../user.model';
 import * as userCat from '../user.model';
 
 @Component({
-    selector: 'searchUser',
+    selector: 'search-user',
     templateUrl: `./search-user.component.html`
 })
 export class SearchUserComponent extends SearchTemplateComponent implements OnInit {
@@ -31,11 +31,6 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
         let url = this.serverService.getUserUrl(this.searchContent);
         let urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
-    }
-
-    checkChange(item, checked) {
-        //console.log(this.delArray.filter(object => object.primaryKey == item[this.primaryKey]));
-        this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
     }
 
     deleteClick() {

@@ -27,8 +27,8 @@
           <a class="btn btn-default btn-md" (click)="butClick('add')" [class.active]="selectedBut === 'add'"> ## 新增</a>
         </div>
       </div>
-      <searchUser *ngIf="selectedBut === 'search'"></searchUser>
-      <addUser *ngIf="selectedBut === 'add'"></addUser>
+      <search-user *ngIf="selectedBut === 'search'"></search-user>
+      <add-user *ngIf="selectedBut === 'add'" (updated)="notifyUpdate($event)"></add-user>
     </div>
     <!--Panel End-->
   </div>

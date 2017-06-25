@@ -52,7 +52,7 @@ export class SearchDeliveryComponent extends SearchTemplateComponent {
 		this.Search(url, urlParam);
 	}
 
-	checkChange(item, checked, index) {
+	checkChange(item, checked) {
 		// check for delete
 		this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
 	}

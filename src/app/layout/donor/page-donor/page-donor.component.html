@@ -28,7 +28,7 @@
         </div>
       </div>
       <search-donor *ngIf="selectedBut === 'search'"></search-donor>
-      <add-donor *ngIf="selectedBut === 'add'"></add-donor>
+      <add-donor *ngIf="selectedBut === 'add'" (updated)="notifyUpdate($event)"></add-donor>
     </div>
     <!--Panel End-->
   </div>

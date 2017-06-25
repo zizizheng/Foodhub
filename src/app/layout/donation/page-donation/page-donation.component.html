@@ -29,7 +29,7 @@
       </div>
       <search-donation *ngIf="selectedBut === 'donation'"></search-donation>
       <search-delivery *ngIf="selectedBut === 'delivery'"></search-delivery>
-      <add-donation *ngIf="selectedBut === 'add'"></add-donation>
+      <add-donation *ngIf="selectedBut === 'add'" (updated)="notifyUpdate($event)"></add-donation>
       <deliver-donation *ngIf="selectedBut === 'deliver'"></deliver-donation>
     </div>
     <!--Panel End-->

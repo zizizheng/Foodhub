@@ -39,7 +39,7 @@ export class PosSystemService {
     }
 
     deleteData(url) {
-        console.log(url);
+        // console.log(url);
         return this.http.delete(url)
             .map(response => response.json());
     }

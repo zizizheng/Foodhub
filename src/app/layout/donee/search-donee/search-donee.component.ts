@@ -36,12 +36,6 @@ export class SearchDoneeComponent extends SearchTemplateComponent implements OnI
         this.Search(url, urlParam);
     }
 
-    checkChange(item, checked) {
-        // console.log(item._id);
-        // console.log(this.delArray.filter(object => object.id == item._id));
-        this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
-    }
-
     deleteClick() {
         this.Delete();
     }

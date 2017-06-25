@@ -1,5 +1,5 @@
 import { AddTemplateComponent } from './../../../template/add-template.component';
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Output, EventEmitter } from '@angular/core';
 import { Donor } from '../donor.model';
 import { ServerService } from '../../../service/server.service';
 
@@ -12,6 +12,7 @@ declare let swal: any;
     styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddDonorComponent extends AddTemplateComponent {
+    @Output() updated: EventEmitter<boolean> = new EventEmitter<boolean>();
     pack: any;
     isGroup = false;
     donor = new Donor();
@@ -28,7 +29,7 @@ export class AddDonorComponent extends AddTemplateComponent {
     addDonorClick() {
         let donorObject = this.donor.getObject();
         let url = this.serverService.getDonorUrl(this.donor.donor_name);
-        this.Add(url, donorObject);
+        this.Add(url, donorObject, true, this.emitChange.bind(this));
     }
 
     catChange(value) {
@@ -38,5 +39,9 @@ export class AddDonorComponent extends AddTemplateComponent {
 
     cleanClick() {
 
+    }
+
+    emitChange() {
+        this.updated.emit(true);
     }
 }

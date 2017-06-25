@@ -17,11 +17,11 @@
 
 
 <div class="row wrapper__panel">
-  <table class="table table-bordered table-hover table-striped animated zoomIn table-rwd">
+  <table class="table table-bordered table-hover table-striped animated fadeIn table-rwd">
     <thead>
       <tr class="tr-only-hide">
         <th>
-          <input type="checkbox" value=""> </th>
+          <input type="checkbox" (click)="CheckAllChange($event.target.checked)"> </th>
         <th>姓名</th>
         <th>手機</th>
         <th>地區</th>
@@ -32,7 +32,7 @@
     <tbody>
       <tr *ngFor="let user of dataList">
         <td>
-          <input #userCheck type="checkbox" (change)="checkChange(user, userCheck.checked)"> </td>
+          <input #userCheck type="checkbox" (change)="CheckChange(user, userCheck.checked)"> </td>
         <td data-th="姓名">{{user.user_name}}</td>
         <td data-th="手機">{{user.phone}}</td>
         <td data-th="地區">{{user.area}}</td>

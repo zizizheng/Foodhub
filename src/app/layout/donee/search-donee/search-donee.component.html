@@ -22,11 +22,11 @@
 
 
 <div class="row wrapper__panel">
-  <table class="table table-bordered table-hover table-striped table-sm animated zoomIn table-rwd">
+  <table class="table table-bordered table-hover table-striped table-sm animated fadeIn table-rwd">
     <thead>
       <tr class="tr-only-hide">
         <th>
-          <input type="checkbox" value=""> </th>
+          <input type="checkbox" (click)="CheckAllChange($event.target.checked)"> </th>
         <th>單位名稱</th>
         <th>單位分類</th>
         <th>戶數</th>
@@ -42,7 +42,7 @@
     <tbody>
       <tr *ngFor="let donee of dataList">
         <td>
-          <input type="checkbox" (change)="checkChange(donee, $event.target.checked)">
+          <input type="checkbox" (change)="CheckChange(donee, $event.target.checked)">
         </td>
         <td data-th="單位名稱">{{donee.donee_name}}</td>
         <td data-th="單位分類">{{donee.category}}</td>

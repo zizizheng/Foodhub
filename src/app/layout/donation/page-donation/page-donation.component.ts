@@ -16,4 +16,7 @@ export class PageDonationComponent implements OnInit {
         //alert(this.selectedBut);
     }
 
+    notifyUpdate(bool) {
+        if (bool) this.ngOnInit();
+    }
 }

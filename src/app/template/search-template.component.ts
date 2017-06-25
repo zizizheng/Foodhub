@@ -89,10 +89,20 @@ export class SearchTemplateComponent {
     }
 
     CheckAllChange(checked) {
-        console.log();
+        // console.log(`check all ${checked}`);
+        this.dataList.forEach(data => {
+            this.CheckChange(data, checked);
+        });
+        const checkbox = document.querySelectorAll('input[type="checkbox"]');
+        for (let i = 0; i < checkbox.length; i++) checkbox[i]["checked"] = checked;
     }
 
-    private getList(listUrl, primaryKey) {
+    CheckChange(item, checked) {
+        // check for delete
+        this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
+    }
+
+    getList(listUrl, primaryKey) {
         this.PosSystemService
             .getDataList(listUrl)
             .subscribe(
@@ -103,7 +113,7 @@ export class SearchTemplateComponent {
                 else {
                     this.dataList = this.dataList.concat(data);
                 }
-                console.log(this.dataList);
+                // console.log(this.dataList);
             },
             error => {
                 const err = error.json();
@@ -145,6 +155,10 @@ export class SearchTemplateComponent {
 
     }
 
+    getType(ele) {
+        return Object.prototype.toString.call(ele);
+    }
+
     // dealId() {
     //     if (this.getType(this.dataList) === this.getType([])) {
     //         for (let item of this.dataList) {
@@ -154,9 +168,5 @@ export class SearchTemplateComponent {
     //     }
 
     // }
-
-    getType(ele) {
-        return Object.prototype.toString.call(ele);
-    }
 
 }

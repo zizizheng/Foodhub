@@ -5,10 +5,16 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: `./page-user.component.html`
 })
 export class PageUserComponent implements OnInit {
-    selectedBut = 'search';
-    ngOnInit(): void { }
+    selectedBut: string;
+    ngOnInit(): void {
+        this.selectedBut = 'search';
+    }
 
     butClick(_selectedBut: string) {
         this.selectedBut = _selectedBut;
+    }
+
+    notifyUpdate(e) {
+        if (e) this.ngOnInit();
     }
 }

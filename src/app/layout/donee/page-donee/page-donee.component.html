@@ -27,7 +27,7 @@
         </div>
       </div>
       <searchDonee *ngIf="selectedBut === 'search'"></searchDonee>
-      <addDonee *ngIf="selectedBut === 'add'"></addDonee>
+      <add-donee *ngIf="selectedBut === 'add'" (updated)="notifyUpdate($event)"></add-donee>
     </div>
     <!--Panel End-->
 

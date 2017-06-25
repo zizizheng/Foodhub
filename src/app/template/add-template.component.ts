@@ -10,7 +10,7 @@ export class AddTemplateComponent {
         this.postSystemService = injector.get(PosSystemService);
     }
 
-    Add(url, urlParam, showMsg = true) {
+    Add(url, urlParam, showMsg = true, callback = null) {
         this.postSystemService.postData(url, urlParam).subscribe(
             data => {
                 swal('Congrations', data.success, 'success');
@@ -18,6 +18,9 @@ export class AddTemplateComponent {
             error => {
                 const err = error.json();
                 swal('Oops!', err.error, 'warning');
+            },
+            () => {
+                if (callback) callback();
             }
         );
     }

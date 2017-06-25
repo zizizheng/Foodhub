@@ -70,7 +70,7 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 		this.Search(url, urlParam);
 	}
 
-	checkChange(item, checked, index) {
+	CheckChange(item, checked) {
 		// console.log(index);
 		// check for delete
 		this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;

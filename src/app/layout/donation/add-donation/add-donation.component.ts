@@ -2,7 +2,7 @@ import { AddTemplateComponent } from '../../../template/add-template.component';
 import { ServerService } from './../../../service/server.service';
 import { Donation } from '../donation.model';
 import { NgForm } from '@angular/forms';
-import { Component, Injector, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Injector, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import * as itemCat from '../donation.model';
 declare let swal: any;
@@ -13,6 +13,7 @@ declare let swal: any;
     styleUrls: ['./../../../template/add-template.component.css']
 })
 export class AddDonationComponent extends AddTemplateComponent implements OnInit {
+    @Output() updated: EventEmitter<boolean> = new EventEmitter<boolean>();
     dn_id: number;
     barcodeLength: number;
     donor_name: string;
@@ -50,7 +51,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
                 dn.donate_dt = comp.donate_dt;
                 dn.memo = comp.memo;
                 dn.contractor = comp.contractor;
-                console.log(comp.Add(url, dn.getObject(), false));
+                comp.Add(url, dn.getObject(), false, comp.emitChange.bind(comp));
             }
         );
     }
@@ -92,6 +93,10 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
         this.donations = [];
         this.donor_name = '';
         this.contractor = '';
+    }
+
+    emitChange() {
+        this.updated.emit(true);
     }
 
 }
