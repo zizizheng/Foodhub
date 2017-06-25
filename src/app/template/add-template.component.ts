@@ -13,7 +13,7 @@ export class AddTemplateComponent {
     Add(url, urlParam, showMsg = true) {
         this.postSystemService.postData(url, urlParam).subscribe(
             data => {
-                swal('Congrations', data.success, 'success')
+                swal('Congrations', data.success, 'success');
             },
             error => {
                 const err = error.json();

@@ -50,8 +50,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
                 dn.donate_dt = comp.donate_dt;
                 dn.memo = comp.memo;
                 dn.contractor = comp.contractor;
-                comp.Add(url, dn.getObject(), false);
-                // console.log(dn.getObject());
+                console.log(comp.Add(url, dn.getObject(), false));
             }
         );
     }
@@ -81,7 +80,8 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
     newRow() {
         this.donations[this.donations.length] = new Donation();
         this.ref.detectChanges();
-        console.log(this.donations);
+        // console.log(this.donations);
+        console.log(this.donate_dt);
     }
 
     delRow() {

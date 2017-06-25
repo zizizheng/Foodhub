@@ -47,10 +47,10 @@
     <div class="row">
       <div class="col-md-3">
         <label class="control-label">捐贈日期</label>
-        <input class="form-control" [(ngModel)]="item.donate_dt" name="donate_dt" type="date"></div>
+        <input id="donate_dt" class="form-control" name="donate_dt" type="date" [value]="item.donate_dt | date: 'yyyy-MM-dd'" (input)="item.donate_dt = $event.target.valueAsDate"></div>
       <div class="col-md-3">
         <label class="control-label">有效期限</label>
-        <input class="form-control" [(ngModel)]="item.expire_dt" name="expire_dt" type="date"> </div>
+        <input class="form-control" name="expire_dt" type="date" [value]="item.expire_dt | date: 'yyyy-MM-dd'" (input)="item.expire_dt = $event.target.valueAsDate">        </div>
 
       <div class="col-md-6">
         <label class="control-label">紀錄與描述</label>

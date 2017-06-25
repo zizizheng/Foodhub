@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 export class Donation {
     _id: string;
-    dn_id: string;
+    dn_id: number;
     donor_name: string;
     item_name: string;
     expire_dt: string;
@@ -15,6 +15,7 @@ export class Donation {
     barcode: string;
     area: string;
     contractor: string;
+    stock_id: string;
 
     constructor() {
         this.weight = 0;
@@ -43,9 +44,10 @@ export class Donation {
             item_unitprice: this.item_unitprice,
             barcode: this.barcode,
             area: this.area,
-            contractor: this.contractor
+            contractor: this.contractor,
+            stock_id: this.stock_id
         };
-        // console.log(object);
+        console.log(object);
         return object;
     }
 
@@ -54,17 +56,18 @@ export class Donation {
         this.dn_id = ob.dn_id;
         this.donor_name = ob.donor_name;
         this.item_name = ob.item_name;
-        this.expire_dt = new DatePipe('zh-tw').transform(ob.expire_dt, 'yyyy/MM/dd');
+        this.expire_dt = new DatePipe('en').transform(ob.expire_dt, 'yyyy/MM/dd');
         this.category = ob.category;
         this.weight = ob.weight;
         this.item_unit = ob.item_unit;
         this.item_qt = ob.item_qt;
-        this.donate_dt = new DatePipe('zh-tw').transform(ob.donate_dt, 'yyyy/MM/dd');
+        this.donate_dt = new DatePipe('en').transform(ob.donate_dt, 'yyyy/MM/dd');
         this.memo = ob.memo;
         this.item_unitprice = ob.item_unitprice;
         this.barcode = ob.barcode;
         this.area = ob.area;
         this.contractor = ob.contractor;
+        this.stock_id = ob.stock_id;
     }
 }
 

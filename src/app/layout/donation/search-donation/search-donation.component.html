@@ -29,7 +29,7 @@
     <thead>
       <tr class="tr-only-hide">
         <th>
-          <input type="checkbox" value=""> </th>
+          <input type="checkbox" (click)="CheckAllChange(checked)"></th>
         <th>全贈字號</th>
         <th>品項名稱</th>
         <th>有效期限</th>
@@ -41,7 +41,7 @@
     <tbody>
       <tr *ngFor="let item of dataList; let i = index">
         <td>
-          <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked, i)"> </td>
+          <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked)"> </td>
         <td data-th="全贈字號" class="margin">{{item.dn_id}}</td>
         <td data-th="品項名稱" class="margin">{{item.item_name}}</td>
         <td data-th="有效期限" class="margin">{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>

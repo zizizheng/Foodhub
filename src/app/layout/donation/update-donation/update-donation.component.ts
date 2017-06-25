@@ -1,7 +1,7 @@
+import { Donation } from './../donation.model';
 import { UpdateTemplateComponent } from './../../../template/update-template.component';
 import { PosSystemService } from './../../../service/pos-system.service';
 import { Component, Injector, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
-import { Donation } from '../donation.model';
 import { DatePipe } from '@angular/common';
 import { ServerService } from '../../../service/server.service';
 
@@ -33,6 +33,7 @@ export class UpdateDonationComponent extends UpdateTemplateComponent implements 
 
     ngOnChanges() {
         this.item.pushData(this.inputItem);
+        console.log(this.item);
     }
 
     sendClick() {

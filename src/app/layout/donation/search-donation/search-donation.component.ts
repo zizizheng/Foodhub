@@ -29,6 +29,7 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     }
 
     updateClick(item) {
+        // console.log(item);
         this.cleanPage();
         this.selectedItem = item;
         this.updateBut = true;
@@ -53,10 +54,9 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.Search(url, urlParam);
     }
 
-    checkChange(item, checked, index) {
+    checkChange(item, checked) {
         // check for delete
         this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
-
     }
 
     deleteClick() {

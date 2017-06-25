@@ -88,6 +88,10 @@ export class SearchTemplateComponent {
 
     }
 
+    CheckAllChange(checked) {
+        console.log();
+    }
+
     private getList(listUrl, primaryKey) {
         this.PosSystemService
             .getDataList(listUrl)
@@ -141,17 +145,18 @@ export class SearchTemplateComponent {
 
     }
 
-    dealId() {
-        if (this.getType(this.dataList) === this.getType([])) {
-            for (let item of this.dataList) {
-                if (item._id != undefined)
-                    item._id = item._id.slice(-8);
-            }
-        }
+    // dealId() {
+    //     if (this.getType(this.dataList) === this.getType([])) {
+    //         for (let item of this.dataList) {
+    //             if (item._id !== undefined)
+    //                 item._id = item._id.slice(-8);
+    //         }
+    //     }
 
-    }
+    // }
 
-    getType = function (ele) {
+    getType(ele) {
         return Object.prototype.toString.call(ele);
     }
+
 }

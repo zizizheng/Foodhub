@@ -55,8 +55,8 @@
   </table>
   <div class="text-center">
     <!--s-->
-    <button class="btn btn-info" (click)="deliverClick()">捐贈</button>
+    <button class="btn btn-info" (click)="deliverClick()">加入清單</button>
   </div>
 </div>
-<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>
+<!--<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>-->
 <deliver-form *ngIf="exList.length" [exList]="exList"></deliver-form>
