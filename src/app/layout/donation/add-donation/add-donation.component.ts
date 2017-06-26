@@ -73,7 +73,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
 
         }).catch(function (e) {
             // add warning to input
-            console.log('oh fuck i cant find anything');
+            console.log('oh can\'t find anything');
             // $('#barcodeInput').addClass('fail');
         });
     }
@@ -82,7 +82,7 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
         this.donations[this.donations.length] = new Donation();
         this.ref.detectChanges();
         // console.log(this.donations);
-        console.log(this.donate_dt);
+        // console.log(this.donate_dt);
     }
 
     delRow() {

@@ -4,6 +4,7 @@ import { Component, enableProdMode, ModuleWithProviders, Injector } from '@angul
 import { ServerService } from '../../../service/server.service';
 import * as itemCat from '../donation.model';
 import { Stock } from '../stock.model';
+import { DatePipe } from '@angular/common';
 
 declare let swal: any;
 
@@ -38,10 +39,11 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 	deliverClick() {
 		this.exTem.forEach((dn: Stock) => {
 			this.exList.push({
-				dn_id: dn.dn_id,
-				name: dn.item_name,
-				unit: dn.item_unit,
-				qt: dn.item_qt
+				item_name: dn.item_name,
+				item_unit: dn.item_unit,
+				item_qt: 0,
+				stock_qt: dn.item_qt,
+				expire_dt: new DatePipe('en').transform(dn.expire_dt, 'yyyy-MM-dd')
 			});
 		});
 	}

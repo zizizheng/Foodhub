@@ -18,18 +18,19 @@ export class Delivery {
         // TODO : 確認各種字串輸入正確與否
     }
 
-    public getObject() {
+    public getObject(ob: any = undefined) {
         // TODO : 確認 id 與 date 格式如何處理
+        if (ob === undefined) ob = this;
         let object = {
-            dv_id: this.dv_id,
-            donee_name: this.donee_name,
-            contractor: this.contractor,
-            delivery_dt: Date.parse(this.delivery_dt),
-            item_name: this.item_name,
-            item_unit: this.item_unit,
-            item_qt: this.item_qt,
-            expire_dt: Date.parse(this.expire_dt),
-            memo: this.memo
+            dv_id: ob.dv_id,
+            donee_name: ob.donee_name,
+            contractor: ob.contractor,
+            delivery_dt: Date.parse(ob.delivery_dt),
+            item_name: ob.item_name,
+            item_unit: ob.item_unit,
+            item_qt: ob.item_qt,
+            expire_dt: Date.parse(ob.expire_dt),
+            memo: ob.memo
         };
         // console.log(object);
         return object;

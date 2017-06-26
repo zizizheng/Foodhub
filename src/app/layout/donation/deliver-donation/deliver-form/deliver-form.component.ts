@@ -4,6 +4,7 @@ import { ServerService } from './../../../../service/server.service';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, Injector, Input, ChangeDetectorRef } from '@angular/core';
 import { Stock } from '../../stock.model';
+import { Delivery } from '../../delivery.model';
 
 @Component({
 	selector: 'deliver-form',
@@ -16,7 +17,8 @@ export class DeliverFormComponent extends AddTemplateComponent implements OnInit
 	dvUrl: string;
 	donee_name: string;
 	delivery_dt;
-	constractor: string;
+	contractor: string;
+	dv_qt: number;
 
 	constructor(injector: Injector,
 		private serverService: ServerService,
@@ -35,8 +37,18 @@ export class DeliverFormComponent extends AddTemplateComponent implements OnInit
 	}
 
 	deliverClick() {
-		this.exList.forEach(element => {
-			console.log(element);
+		let that = this;
+		let dv = new Delivery();
+		let dv_ob;
+		let url = this.dvUrl + this.dv_id;
+		this.exList.forEach((st) => {
+			that.Add(url, dv.getObject({
+				...st,
+				dv_id: that.dv_id,
+				donee_name: that.donee_name,
+				delivery_dt: that.delivery_dt,
+				contrator: that.contractor
+			}));
 		});
 	}
 

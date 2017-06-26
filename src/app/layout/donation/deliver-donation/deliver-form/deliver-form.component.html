@@ -29,7 +29,7 @@
       <tr>
         <th>#</th>
         <th>物資名稱</th>
-        <th>品質說明</th>
+        <th>過期日</th>
         <th>單位</th>
         <th>剩餘數量</th>
         <th>捐贈數量</th>
@@ -37,14 +37,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dn of exList; let i = index">
+      <tr *ngFor="let st of exList; let i = index">
         <th class="fa fa-close text-danger clickable col-md-1" (click)="delEx(i)"></th>
-        <th class="col-md-2">{{dn.name}}</th>
-        <th class="col-md-3"><input class="form-control" type="text"></th>
-        <th class="text-right col-md-1">{{dn.item_unit}}</th>
-        <th class="text-right col-md-1">{{dn.qt}}</th>
-        <th class="col-md-1"><input type="number" min="0" [max]="dn.qt" class="text-right form-control">{{dn.item_qt}}</th>
-        <th><input type="text" class="form-control col-md-4">{{dn.memo}}</th>
+        <th class="col-md-2">{{st.item_name}}</th>
+        <th class="col-md-2">{{st.expire_dt}}</th>
+        <th class="text-center col-md-1">{{st.item_unit}}</th>
+        <th class="text-right col-md-1">{{st.stock_qt}}</th>
+        <th class="col-md-2"><input type="number" min="0" [max]="st.stock_qt" class="text-right form-control" [(ngModel)]="st.item_qt"></th>
+        <th><input type="text" class="form-control col-md-4" [(ngModel)]="st.memo"></th>
       </tr>
     </tbody>
   </table>
