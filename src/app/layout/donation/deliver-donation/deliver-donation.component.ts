@@ -1,8 +1,8 @@
 import { UpdateDonationComponent } from './../update-donation/update-donation.component';
 import { SearchTemplateComponent } from './../../../template/search-template.component';
-import { Component, enableProdMode, ModuleWithProviders, Injector } from '@angular/core';
+import { Component, enableProdMode, ModuleWithProviders, Injector, Output } from '@angular/core';
 import { ServerService } from '../../../service/server.service';
-import * as itemCat from '../donation.model';
+import * as itemCat from '../stock.model';
 import { Stock } from '../stock.model';
 import { DatePipe } from '@angular/common';
 
@@ -14,9 +14,9 @@ declare let swal: any;
 	// directives: [ UpdateDonationComponent ]
 })
 export class DeliverDonationComponent extends SearchTemplateComponent {
-
 	exList: Array<{}>;
 	exTem: Array<{}>;
+	inputDate: boolean;
 
 	constructor(injector: Injector,
 		private serverService: ServerService) {
@@ -30,6 +30,7 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 		this.listUrl = this.serverService.getStockUrl('list');
 		this.exList = [];
 		this.exTem = [];
+		this.inputDate = false;
 	}
 
 	ngOnInit() {
@@ -37,15 +38,18 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 	}
 
 	deliverClick() {
-		this.exTem.forEach((dn: Stock) => {
+		this.exTem.forEach((st: any) => {
 			this.exList.push({
-				item_name: dn.item_name,
-				item_unit: dn.item_unit,
+				stock_id: st._id,
+				item_name: st.item_name,
+				item_unit: st.item_unit,
 				item_qt: 0,
-				stock_qt: dn.item_qt,
-				expire_dt: new DatePipe('en').transform(dn.expire_dt, 'yyyy-MM-dd')
+				stock_qt: st.item_qt,
+				expire_dt: new DatePipe('en').transform(st.expire_dt, 'yyyy-MM-dd')
 			});
 		});
+		this.exTem.splice(0);
+		this.CheckAllChange(false);
 	}
 
 	updateClick(item) {
@@ -77,10 +81,12 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 		// check for delete
 		this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
 
-		// Find the index of item. Not find(checked yet) -> push, Find(already check) -> delete
-		let i = this.exTem.findIndex((o) => { return o['item_name'] === item.item_name; });
-		if (i < 0) this.exTem.push(item);
-		else this.exTem.splice(i, 1);
+		if (checked) {
+			// Find the index of item. Not find(checked yet) -> push, Find(already check) -> delete
+			let i = this.exTem.findIndex((o) => { return o['item_name'] === item.item_name; });
+			if (i < 0) this.exTem.push(item);
+			else this.exTem.splice(i, 1);
+		}
 		// console.log(this.exTem);
 	}
 
@@ -89,12 +95,16 @@ export class DeliverDonationComponent extends SearchTemplateComponent {
 	}
 
 	searchChange(value) {
-		if (value === '品項類別' || value === '倉庫地區') {
-			this.category = (value === '品項類別') ? itemCat.Category : itemCat.Warehouse;
+		this.selectCat = false;
+		this.inputDate = false;
+		this.searchContent = '';
+		if (value === '品項類別') {
+			this.category = itemCat.Category;
 			this.selectCat = true;
-			this.searchContent = '';
 		}
-		else this.selectCat = false;
+		else if (value === '過期日') {
+			this.inputDate = true;
+		}
 	}
 
 	notifyUpdate(isUpdate) {

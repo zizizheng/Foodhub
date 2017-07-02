@@ -42,8 +42,9 @@ export class LoginComponent implements OnInit {
 				},
 				() => {
 					console.log(this.pack);
-					this.loginService.recordLogin(v.account, this.pack.auth);
-					swal('Login Successed', 'Welcome to FoodBank, ' + this.account);
+					// 這邊改成名字
+					this.loginService.recordLogin(this.pack.user_name, this.pack.auth);
+					swal('Login Successed', 'Welcome to FoodBank, ' + this.pack.user_name);
 					this.router.navigate(['page-expiry']);
 				}
 				);

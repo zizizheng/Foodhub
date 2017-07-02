@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
 	constructor(public loginService: LoginService) {
 		loginService.nameChange$.subscribe((object) => {
-			this.userName = object.loginName;
+			this.userName = object.userName;
 			this.auth = object.auth;
 		});
 		this.userName = 'Test';

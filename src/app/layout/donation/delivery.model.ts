@@ -30,7 +30,8 @@ export class Delivery {
             item_unit: ob.item_unit,
             item_qt: ob.item_qt,
             expire_dt: Date.parse(ob.expire_dt),
-            memo: ob.memo
+            memo: ob.memo,
+            stock_id: ob.stock_id
         };
         // console.log(object);
         return object;

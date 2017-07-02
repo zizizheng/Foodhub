@@ -33,8 +33,8 @@
         <th>全物字號</th>
         <th>品項名稱</th>
         <th>有效期限</th>
-        <th>品項分類</th>
         <th>贈與數量</th>
+        <th>承辦人</th>
         <!--<th>選項</th>-->
       </tr>
     </thead>
@@ -42,11 +42,11 @@
       <tr *ngFor="let item of dataList; let i = index">
         <td>
           <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked)"> </td>
-        <td data-th="全物字號" class="margin">{{item.dn_id}}</td>
+        <td data-th="全物字號" class="margin">{{item.dv_id}}</td>
         <td data-th="品項名稱" class="margin">{{item.item_name}}</td>
         <td data-th="有效期限" class="margin">{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
-        <td data-th="品項分類" class="margin">{{item.category}}</td>
         <td data-th="贈與數量" class="margin">{{item.item_qt}}</td>
+        <td data-th="品項分類" class="margin">{{item.contractor}}</td>
         <!--<td class="center">
           <a pageScroll href="#update-donation"><button class="btn btn-success" (click)="updateClick(item)">更新</button></a>
         </td>-->

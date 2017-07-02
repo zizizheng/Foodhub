@@ -3,11 +3,13 @@
 <form #searchForm="ngForm">
   <div class="row wrapper__panel">
     <div class="col-sm-4 searchBar">
-      <input *ngIf="!selectCat" class="form-control" name="donation-search" placeholder="你要找什麼呢？" [(ngModel)]="searchContent" required>
+      <input *ngIf="!selectCat && !inputDate" class="form-control" name="donation-search" placeholder="你要找什麼呢？" [(ngModel)]="searchContent"
+        required>
 
       <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchContent" name="donation-cat" required>
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
+      <input *ngIf="inputDate" type="date" class="form-control" [(ngModel)]="searchContent" name="donation-date" required>
     </div>
     <div class="col-sm-4 searchBar">
       <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" (change)="searchChange(catSelect.value)"
@@ -59,4 +61,4 @@
   </div>
 </div>
 <!--<update-donation id="update-donation" *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></update-donation>-->
-<deliver-form *ngIf="exList.length" [exList]="exList"></deliver-form>
+<deliver-form *ngIf="exList.length" [exList]="exList" (updated)="notifyUpdate($event)"></deliver-form>

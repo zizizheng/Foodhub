@@ -12,14 +12,14 @@
         <label class="control-label">品項名稱</label>
         <input class="form-control" [(ngModel)]="item.item_name" name="item_name"> </div>
       <div class="col-md-3">
-        <label class="control-label">條碼</label>
-        <input class="form-control" [(ngModel)]="item.barcode" name="barcode"> </div>
-      <div class="col-md-3">
         <label class="control-label">品項分類</label>
         <select name="item-category" class="form-control" [(ngModel)]="item.category" name="category">
           <option *ngFor="let c of category" [value]="c">{{c}}</option>
         </select>
       </div>
+      <div class="col-md-3">
+        <label class="control-label">承辦人</label>
+        <input class="form-control" [(ngModel)]="item.contractor" name="contractor"> </div>
     </div>
     <div class="row">
       <div class="col-md-4">

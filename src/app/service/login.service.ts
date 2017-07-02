@@ -7,29 +7,29 @@ import 'rxjs/add/operator/map';
 export class LoginService {
     public nameChange$: EventEmitter<object>;
     serverUrl: string;
-    loginName: string;
+    userName: string;
     auth: string;
 
     constructor(private http: Http) {
         this.nameChange$ = new EventEmitter<object>();
         this.serverUrl = 'http://localhost:8080/user/login/';
-        this.loginName = undefined;
+        this.userName = undefined;
     }
 
     recordLogin(name, auth): void {
-        this.loginName = name;
+        this.userName = name;
         this.auth = auth;
         this.emitChange();
-        // console.log('Here is service, login name is : ' + this.loginName);
+        // console.log('Here is service, login name is : ' + this.userName);
     }
 
     checkLogin() {
-        // console.log('Here is service, return name ' + this.loginName);
-        return this.loginName;
+        // console.log('Here is service, return name ' + this.userName);
+        return this.userName;
     }
 
     emitChange() {
-        this.nameChange$.emit({ loginName: this.loginName, auth: this.auth });
+        this.nameChange$.emit({ userName: this.userName, auth: this.auth });
     }
 
     getData(name) {

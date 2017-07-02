@@ -1,3 +1,4 @@
+import { LoginService } from './../../../service/login.service';
 import { AddTemplateComponent } from '../../../template/add-template.component';
 import { ServerService } from './../../../service/server.service';
 import { Donation } from '../donation.model';
@@ -28,7 +29,8 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
 
     constructor(injector: Injector,
         private serverService: ServerService,
-        private ref: ChangeDetectorRef) {
+        private ref: ChangeDetectorRef,
+        private loginService: LoginService) {
         super(injector);
         this.barcodeLength = 0;
     }
@@ -38,20 +40,21 @@ export class AddDonationComponent extends AddTemplateComponent implements OnInit
         this.GetSpecificData(this.dnUrl + 'max_dnid')
             .then((data: number) => this.dn_id = data + 1);
         this.donate_dt = new DatePipe('en').transform(Date.now(), 'yyyy-MM-dd');
+        this.contractor = this.loginService.checkLogin();
         this.newRow();
     }
 
     addDonation() {
-        let comp = this;
+        let that = this;
         let url = this.dnUrl + this.dn_id;
         // console.log(this.dnUrl);
         this.donations.forEach(
             (dn: Donation) => {
-                dn.donor_name = comp.donor_name;
-                dn.donate_dt = comp.donate_dt;
-                dn.memo = comp.memo;
-                dn.contractor = comp.contractor;
-                comp.Add(url, dn.getObject(), false, comp.emitChange.bind(comp));
+                dn.donor_name = that.donor_name;
+                dn.donate_dt = that.donate_dt;
+                dn.memo = that.memo;
+                dn.contractor = that.contractor;
+                that.Add(url, dn.getObject(), false, that.emitChange.bind(that));
             }
         );
     }

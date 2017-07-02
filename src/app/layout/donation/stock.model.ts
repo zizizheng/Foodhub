@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 export class Stock {
+    _id: string;
     dn_id: string;
     item_name: string;
     item_unit: string;
@@ -10,6 +11,7 @@ export class Stock {
     donor_name: string;
 
     constructor() {
+        this._id = "";
         this.item_qt = 0;
         this.item_unitprice = 0;
     }
@@ -21,6 +23,7 @@ export class Stock {
     public getObject() {
         // TODO : 確認 id 與 date 格式如何處理
         let object = {
+            _id: this._id,
             dn_id: this.dn_id,
             item_name: this.item_name,
             item_unit: this.item_unit,
@@ -34,6 +37,7 @@ export class Stock {
     }
 
     pushData(ob) {
+        this._id = ob._id;
         this.dn_id = ob.dn_id;
         this.item_name = ob.item_name;
         this.item_unit = ob.item_unit;
