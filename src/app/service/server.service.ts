@@ -5,8 +5,8 @@ export class ServerService {
     private serverUrl;
 
     constructor() {
-        this.serverUrl = 'http://localhost:8080/';
-        // this.serverUrl = '/';
+        // this.serverUrl = 'http://localhost:8080/';
+        this.serverUrl = '/';
     }
 
     // TODO : design different function for different call

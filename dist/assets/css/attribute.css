@@ -1,0 +1,26 @@
+.pageWell {
+  margin-top: 35px;
+}
+
+.clickable:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.searchBar {
+  padding-top: 5px;
+}
+
+.wrapper__panel {
+  margin: 20px 10px 10px 10px;
+}
+
+.no-link {
+  pointer-events: none;
+  color: silver;
+}
