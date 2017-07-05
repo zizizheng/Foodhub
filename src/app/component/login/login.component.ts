@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
 	ngOnInit() {
 		this.userName = this.loginService.checkLogin();
-		this.isLogin = (this.userName === undefined) ? false : true;
+		this.isLogin = (this.userName === undefined || this.userName === 'Guest') ? false : true;
 	}
 
 	onSubmit(v) {

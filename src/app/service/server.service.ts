@@ -6,9 +6,14 @@ export class ServerService {
 
     constructor() {
         this.serverUrl = 'http://localhost:8080/';
+        // this.serverUrl = '/';
     }
 
     // TODO : design different function for different call
+
+    getLoginUrl(value) {
+        return this.serverUrl + 'user/login/' + value;
+    }
 
     getDonationUrl(value) {
         return this.serverUrl + 'donation/' + value;

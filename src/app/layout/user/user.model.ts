@@ -31,10 +31,10 @@ export class User {
         this.user_unit = ob.user_unit;
         this.phone = ob.phone;
         this.area = ob.area;
-        this.auth = (ob.auth == "管理員") ? "admin" : "user";
+        this.auth = (ob.auth === 'admin') ? '管理員' : '一般使用者';
         this.account = ob.account;
         this.password = ob.password;
-        console.log(ob);
+        // console.log(ob);
     }
 }
 

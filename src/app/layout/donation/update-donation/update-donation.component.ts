@@ -33,7 +33,7 @@ export class UpdateDonationComponent extends UpdateTemplateComponent implements 
 
     ngOnChanges() {
         this.item.pushData(this.inputItem);
-        console.log(this.item);
+        // console.log(this.item);
     }
 
     sendClick() {

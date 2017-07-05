@@ -42,9 +42,15 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
         this.searchContent = '';
     }
 
-    editClick(user) {
+    updateClick(user) {
+        console.log(user);
+        this.cleanPage();
         this.selectedItem = user;
         this.updateBut = true;
+    }
+
+    cleanPage() {
+        this.updateBut = false;
     }
 
     notifyUpdate(isUpdate) {

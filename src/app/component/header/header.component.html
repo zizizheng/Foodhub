@@ -30,11 +30,11 @@
               <a routerLink="/page-donee" routerLinkActive="active">受贈者管理</a>
             </li>
             <li class="divider"></li>
-            <li>
-              <a href="/">收據清單</a>
+            <li class="disabled">
+              <a href="/" disabled>收據清單</a>
             </li>
-            <li>
-              <a href="/">報表</a>
+            <li class="disabled">
+              <a href="/" disabled>報表</a>
             </li>
             <li *ngIf="auth === 'admin'" class="divider"></li>
             <li *ngIf="auth === 'admin'">

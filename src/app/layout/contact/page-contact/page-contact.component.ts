@@ -8,23 +8,23 @@ import { Component } from '@angular/core';
 })
 export class PageContactComponent {
     webDeveloper = [
-        { 
-            name: 'Erica', title: 'ProjectManager', fb:'', github:'', web:'', 
-            photo:'http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png'
+        {
+            name: 'Erica', title: '志工', fb: '', github: '', web: '',
+            photo: '../../../../assets/img/erica.jpg'
         },
-        { 
-            name: 'AnChe', title: 'Backend Developer', 
-            fb:'', 
-            github:'', 
-            web:'', 
-            photo:'../../../../assets/img/anche.jpg'
+        {
+            name: 'AnChe', title: '後端工程師',
+            fb: 'https://www.facebook.com/Wastelandshadow',
+            github: 'https://github.com/AnCheTeng',
+            web: '',
+            photo: '../../../../assets/img/anche.jpg'
         },
-        { 
-            name: 'Zizi', title: 'Frontend Developer', 
-            fb:'https://www.facebook.com/zizi.zheng.1', 
-            github:'https://github.com/zizizheng',
-            web:'',
-            photo:'../../../../assets/img/zizi.jpg'
+        {
+            name: 'Zizi', title: '前端工程師',
+            fb: 'https://www.facebook.com/zizi.zheng.1',
+            github: 'https://github.com/zizizheng',
+            web: '',
+            photo: '../../../../assets/img/zizi.jpg'
         }
     ];
 }

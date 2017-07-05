@@ -32,9 +32,11 @@ export class UpdateUserComponent extends UpdateTemplateComponent implements OnIn
     ngOnInit() {
         this.user.pushData(this.inputItem);
         this.curName = this.user[this.primaryKey];
+        // console.log(this.user);
     }
 
     ngOnChanges() {
+        this.user.pushData(this.inputItem);
         this.curName = this.user[this.primaryKey];
     }
 

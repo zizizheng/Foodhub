@@ -2,17 +2,17 @@ import { Auth } from './../layout/user/user.model';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { ServerService } from './server.service';
 
 @Injectable()
 export class LoginService {
     public nameChange$: EventEmitter<object>;
-    serverUrl: string;
     userName: string;
     auth: string;
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+        private serverService: ServerService) {
         this.nameChange$ = new EventEmitter<object>();
-        this.serverUrl = 'http://localhost:8080/user/login/';
         this.userName = undefined;
     }
 
@@ -35,7 +35,8 @@ export class LoginService {
     getData(name) {
         // console.log('login name = ' + name);
         // console.log(this.serverUrl + name);
-        return this.http.get(this.serverUrl + name)
+        let url = this.serverService.getLoginUrl(name);
+        return this.http.get(url)
             .map(response => response.json());
     }
 
@@ -43,9 +44,10 @@ export class LoginService {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         const params = { 'pw': password };
+        let url = this.serverService.getLoginUrl(name);
         // console.log('login name = ' + name);
         // console.log(this.serverUrl + name);
-        return this.http.post(this.serverUrl + name, JSON.stringify(params), options)
+        return this.http.post(url, JSON.stringify(params), options)
             .map(response => response.json());
     }
 }
