@@ -345,7 +345,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n    font-family: Microsoft YaHei, Tahoma, Helvetica, Arial, \"\\5B8B\\4F53\", sans-serif;\r\n}\r\n\r\nh4 {\r\n    font-family: '\\5FAE\\8EDF\\6B63\\9ED1\\9AD4', sans-serif;\r\n    padding-top: 7.5px;\r\n}\r\n\r\nhr.specific {\r\n    border: 0;\r\n    height: 1px;\r\n    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));\r\n}\r\n\r\nlabel {\r\n    margin-top: 5px;\r\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n\r\nbody {\r\n  font-family: Microsoft YaHei, Tahoma, Helvetica, Arial, \"\\5B8B\\4F53\", sans-serif;\r\n}\r\n\r\nh4 {\r\n  font-family: '\\5FAE\\8EDF\\6B63\\9ED1\\9AD4', sans-serif;\r\n  padding-top: 7.5px;\r\n}\r\n\r\nhr.specific {\r\n  border: 0;\r\n  height: 1px;\r\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));\r\n}\r\n\r\nlabel {\r\n  margin-top: 5px;\r\n}\r\n\r\na:hover,\r\na:focus {\r\n  text-decoration: none;\r\n}\r\n", ""]);
 
 // exports
 
